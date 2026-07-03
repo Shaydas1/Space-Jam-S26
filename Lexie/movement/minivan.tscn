@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://dh2bj744ptxma"]
+[gd_scene format=3 uid="uid://7uqmhac58wu3"]
 
-[ext_resource type="Texture2D" uid="uid://5vfk0etjuhx" path="res://icon.svg" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://7uqmhac58wu3" path="res://Lexie/movement/minivan.tscn" id="1_koq2j"]
-[ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Lexie/movement/speedometer.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://5vfk0etjuhx" path="res://icon.svg" id="2_0oivh"]
+[ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Lexie/movement/speedometer.gd" id="2_74o1u"]
+[ext_resource type="PackedScene" uid="uid://7uqmhac58wu3" path="res://Lexie/movement/minivan.tscn" id="3_ju76n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mahgt"]
 shading_mode = 0
-albedo_texture = ExtResource("1_ig7tw")
+albedo_texture = ExtResource("2_0oivh")
 uv1_scale = Vector3(1000, 1000, 1000)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vqkdg"]
@@ -20,7 +20,7 @@ shading_mode = 0
 
 [node name="Node3D" type="Node3D" unique_id=187593957]
 
-[node name="minivan" parent="." unique_id=1612348678 instance=ExtResource("1_koq2j")]
+[node name="minivan" parent="." unique_id=1612348678 instance=ExtResource("3_ju76n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043, 1.938, 321.71606)
 max_swerve_speed = 40.0
 
@@ -45,7 +45,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("3_h2yge")
+script = ExtResource("2_74o1u")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1619533021]
 transform = Transform3D(104.4, 0, 0, 0, 104.4, 0, 0, 0, 104.4, -70.94501, 54.49453, 65.04809)

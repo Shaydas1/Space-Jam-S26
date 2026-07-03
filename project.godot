@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tmp"
-run/main_scene="res://movement/main.tscn"
+run/main_scene="uid://dh2bj744ptxma"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://movement/icon.svg"
 

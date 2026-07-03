@@ -1,6 +1,12 @@
 class_name Minivan 
 extends CharacterBody3D 
 
+@export var tex_center : Texture2D
+@export var tex_left : Texture2D
+@export var tex_right : Texture2D
+
+@export var sprite : Sprite3D
+
 @export var forward_direction : Vector3
 @export var right_direction : Vector3
 
@@ -23,11 +29,28 @@ var accel_falloff_rate : float
 @onready var swerve_speed : float = 0
 
 
+func update_texture():
+	if abs(swerve_speed) < max_swerve_speed/2:
+		sprite.texture = tex_center
+
+	elif swerve_speed < 5:
+		sprite.texture = tex_right
+
+	elif swerve_speed > 5:
+		sprite.texture = tex_left
+
+func _ready() -> void:
+	update_texture()
+
 func decay_swerve_speed(delta):
 	swerve_speed = lerp(swerve_speed, 0.0, swerve_decay)
 
 	if abs(swerve_speed) < 5:
 		swerve_speed = 0
+
+
+func _process(delta: float) -> void:
+	update_texture()
 
 
 func _physics_process(delta: float) -> void:
