@@ -18,6 +18,7 @@ config/icon="res://movement/icon.svg"
 [autoload]
 
 TrackBuilder="*uid://dvgjowomow5iw"
+SceneManager="*uid://cwd5q0a3tgnyo"
 
 [display]
 

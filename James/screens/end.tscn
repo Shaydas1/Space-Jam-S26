@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cq3fsnfpcm10b"]
+
+[ext_resource type="Script" uid="uid://dwu70323embja" path="res://James/screens/end.gd" id="1_2gtpu"]
+[ext_resource type="Texture2D" uid="uid://5vfk0etjuhx" path="res://icon.svg" id="1_jaud4"]
+
+[node name="End" type="Node2D" unique_id=1971923482]
+script = ExtResource("1_2gtpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213438897]
+position = Vector2(59, 70)
+scale = Vector2(0.1328125, 1)
+texture = ExtResource("1_jaud4")
