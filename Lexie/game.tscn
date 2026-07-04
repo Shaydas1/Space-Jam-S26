@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://rsdipw2aqkhg"]
+
+[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Lexie/minivan/minivan.tscn" id="1_aha5t"]
+[ext_resource type="PackedScene" uid="uid://cjo306ejux152" path="res://Lexie/highway/highway.tscn" id="1_jv400"]
+[ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Lexie/assets/space_pano.jpg" id="3_scbye"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
+panorama = ExtResource("3_scbye")
+
+[sub_resource type="Sky" id="Sky_mahgt"]
+sky_material = SubResource("PanoramaSkyMaterial_ijulh")
+
+[sub_resource type="Environment" id="Environment_vqkdg"]
+background_mode = 2
+sky = SubResource("Sky_mahgt")
+
+[node name="Node3D" type="Node3D" unique_id=607687153]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
+environment = SubResource("Environment_vqkdg")
+
+[node name="Highway" parent="." unique_id=323616027 instance=ExtResource("1_jv400")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5920715, 0, 0)
+
+[node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
+forward_direction = Vector3(0, 0, -1)
+right_direction = Vector3(1, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=2141817629]
+transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, -0.042559862, 6.29351, 12.432451)
+fov = 90.0
+size = 1.935

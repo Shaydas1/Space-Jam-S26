@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cjo306ejux152"]
+
+[ext_resource type="Script" uid="uid://d276tkjr45i4n" path="res://Lexie/highway/highway.gd" id="1_w6rp3"]
+[ext_resource type="Texture2D" uid="uid://eg0kjk8qy1i4" path="res://Lexie/assets/guardrail_coponent.png" id="3_r2fhe"]
+[ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://Lexie/assets/pool_component.png" id="4_2khy6"]
+
+[sub_resource type="Curve3D" id="Curve3D_a7er4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1000),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqkdg"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+albedo_texture = ExtResource("3_r2fhe")
+uv1_scale = Vector3(1, 8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0wl2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+albedo_texture = ExtResource("4_2khy6")
+uv1_scale = Vector3(1, 8, 1)
+
+[node name="Highway" type="Node3D" unique_id=323616027]
+script = ExtResource("1_w6rp3")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=2095943834]
+curve = SubResource("Curve3D_a7er4")
+
+[node name="railing_left" type="CSGPolygon3D" parent="Path3D" unique_id=443655375]
+polygon = PackedVector2Array(0, 0, 0, 2, 0.001, 2, 0.001, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 3.88
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_vqkdg")
+
+[node name="lane1" type="CSGPolygon3D" parent="Path3D" unique_id=518109794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.153, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_q0wl2")
+
+[node name="lane2" type="CSGPolygon3D" parent="Path3D" unique_id=628946406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.373, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_q0wl2")
+
+[node name="lane3" type="CSGPolygon3D" parent="Path3D" unique_id=140052907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.593, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_q0wl2")
+
+[node name="lane4" type="CSGPolygon3D" parent="Path3D" unique_id=282399579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.593, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_q0wl2")
+
+[node name="railing_right" type="CSGPolygon3D" parent="Path3D" unique_id=1197482573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.813, 0, 0)
+polygon = PackedVector2Array(0, 0, 0, 2, 0.001, 2, 0.001, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 3.88
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_vqkdg")
