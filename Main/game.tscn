@@ -31,6 +31,17 @@
 [ext_resource type="Texture2D" uid="uid://dxjqu2x2pgx1a" path="res://Main/assets/driver/speed_up/player_speed_up_3.webp" id="27_cs1fn"]
 [ext_resource type="Texture2D" uid="uid://cwsud0r3qs4tu" path="res://Main/assets/portrait_holder/portrait_bg.webp" id="31_qs41t"]
 [ext_resource type="Texture2D" uid="uid://de8y0k675yoy7" path="res://Main/assets/portrait_holder/portrait_holder.webp" id="32_qs41t"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
+panorama = ExtResource("3_scbye")
+
+[sub_resource type="Sky" id="Sky_mahgt"]
+sky_material = SubResource("PanoramaSkyMaterial_ijulh")
+
+[sub_resource type="Environment" id="Environment_vqkdg"]
+background_mode = 2
+sky = SubResource("Sky_mahgt")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
 
@@ -173,11 +184,12 @@ animations = [{
 [node name="game" type="Node3D" unique_id=607687153]
 script = ExtResource("1_bc5lc")
 
-[node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("2_n0uw5")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
+environment = SubResource("Environment_vqkdg")
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
+forward_direction = Vector3(0, 0, -1)
 right_direction = Vector3(1, 0, 0)
-turn_rate = 90.0
 
 [node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=2141817629]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -0.042559862, 6.293509, 12.432451)
