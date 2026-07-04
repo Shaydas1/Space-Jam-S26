@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://cf3uj0afqt767"]
 
 [ext_resource type="Script" uid="uid://dsk5pdqpkya45" path="res://James/screens/start.gd" id="1_bitbn"]
-[ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="2_1sono"]
-[ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="3_h77kq"]
-[ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="4_71oto"]
 [ext_resource type="Texture2D" uid="uid://bp8fo8encvwlt" path="res://Main/assets/start_screen/title_screen_background.webp" id="5_abemq"]
 [ext_resource type="Texture2D" uid="uid://bxe7eus6oesi8" path="res://Main/assets/start_screen/options.webp" id="6_5a71q"]
 [ext_resource type="Texture2D" uid="uid://bavyheffibxxi" path="res://Main/assets/start_screen/start.webp" id="7_wmr2p"]
@@ -11,27 +8,34 @@
 [node name="Start" type="Node2D" unique_id=571347030]
 script = ExtResource("1_bitbn")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1357887562]
-
-[node name="EmptyBar" type="Sprite2D" parent="." unique_id=633082275]
-texture = ExtResource("2_1sono")
-
-[node name="Mask" type="Sprite2D" parent="EmptyBar" unique_id=1558066126]
-clip_children = 1
-position = Vector2(3.0517578e-05, 0)
-texture = ExtResource("3_h77kq")
-
-[node name="BarColour" type="Sprite2D" parent="EmptyBar/Mask" unique_id=2009994482]
-position = Vector2(-866.82025, -9)
-scale = Vector2(-0.0026900072, 2.25)
-texture = ExtResource("4_71oto")
-
 [node name="background" type="Sprite2D" parent="." unique_id=1790716810]
-scale = Vector2(2, 2)
 texture = ExtResource("5_abemq")
 
 [node name="options" type="Sprite2D" parent="." unique_id=784910794]
+position = Vector2(177, 184)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_5a71q")
 
 [node name="start" type="Sprite2D" parent="." unique_id=1030461469]
+position = Vector2(146, 96)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_wmr2p")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1140585633]
+
+[node name="options_button" type="Button" parent="." unique_id=1680694373]
+visible = false
+offset_left = 32.0
+offset_top = 152.0
+offset_right = 325.0
+offset_bottom = 213.0
+
+[node name="start_button" type="Button" parent="." unique_id=186785004]
+visible = false
+offset_left = 36.0
+offset_top = 66.0
+offset_right = 265.0
+offset_bottom = 127.0
+
+[connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
