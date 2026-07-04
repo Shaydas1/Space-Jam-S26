@@ -1,15 +1,36 @@
 [gd_scene format=3 uid="uid://bsm857xw16j1d"]
 
+[ext_resource type="Texture2D" uid="uid://b4svppbb2ued3" path="res://Lexie/Untitled_Artwork 125.png" id="1_ie83t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ie83t"]
+load_path = "res://.godot/imported/Untitled_Artwork 125.png-77e7e2598b64ce3d2a47e897e4ccb5e3.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23be"]
+shading_mode = 0
+albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+albedo_texture = SubResource("CompressedTexture2D_ie83t")
+uv1_scale = Vector3(6, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nk7o2"]
+material = SubResource("StandardMaterial3D_v23be")
+size = Vector3(180, 90, 180)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji3bk"]
 shading_mode = 0
 albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+albedo_texture = ExtResource("1_ie83t")
 
 [sub_resource type="BoxMesh" id="BoxMesh_vqkdg"]
 material = SubResource("StandardMaterial3D_ji3bk")
-size = Vector3(180, 300, 180)
+size = Vector3(180, 150, 180)
 
 [node name="Building1x1_200m" type="Node3D" unique_id=1645341968]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=877889490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+mesh = SubResource("BoxMesh_nk7o2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=262147360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 75, 277.1991)
+visible = false
 mesh = SubResource("BoxMesh_vqkdg")
