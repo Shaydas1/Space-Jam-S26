@@ -1,8 +1,33 @@
 extends Node
 
+# NOTE: Currently, it's technically possible for a dead end to be generated
+# on the outside edge if a 2x2 is created adjacent to the edge.
+# Requires a specific scenario to occur. Leaving for now, seems low prio.
+# To solve: Make a method for deleting a *pair* of streets for the 2x2 creation.
+# then all 3 relevant intersections can be checked at once to avoid that case.
+
+# Until then, the jank solution of just having 2x2 creation utterly ignore intersection
+# degree requirements is being used.  ¯\_(ツ)_/¯.
+
+# STILL TODO:
+# - Fix 2x2's
+# - Add random exits
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#test_gen_city()
+	gen_city(5, 7)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+	
+func test_gen_city():
+	var n = 5
+	var m = 7
 	# Test Sequences. Format: [h_or_v, i, j]
 	var testing = true
 	# L, points down and right
@@ -33,26 +58,32 @@ func _ready() -> void:
 	var sqr_up_left_2 = [[0, 2, 2], [1, 1, 2], [1, 2, 2]]
 	
 	# var test_seq = L_down_right_seq_1
-	var test_seqs = [L_down_right_seq_1, L_down_right_seq_2, L_down_left_seq_1, L_down_left_seq_2,
+	var shape_test_seqs = [L_down_right_seq_1, L_down_right_seq_2, L_down_left_seq_1, L_down_left_seq_2,
 	L_up_right_seq_1, L_up_right_seq_2, L_up_left_seq_1, L_up_left_seq_2,
 	sqr_bottom_right_1, sqr_bottom_right_2, sqr_bottom_left_1, sqr_bottom_left_2, 
 	sqr_top_right_1, sqr_top_right_2, sqr_up_left_1, sqr_up_left_2]
 	
-	var test_seq_names = ["L_down_right_seq_1", "L_down_right_seq_2", "L_down_left_seq_1", "L_down_left_seq_2",
+	var shape_test_seq_names = ["L_down_right_seq_1", "L_down_right_seq_2", "L_down_left_seq_1", "L_down_left_seq_2",
 	"L_up_right_seq_1", "L_up_right_seq_2", "L_up_left_seq_1", "L_up_left_seq_2",
 	"sqr_bottom_right_1", "sqr_bottom_right_2", "sqr_bottom_left_1", "sqr_bottom_left_2", 
 	"sqr_top_right_1", "sqr_top_right_2", "sqr_up_left_1", "sqr_up_left_2"]
 	
-	for t in range(0, test_seqs.size()):
-		print(test_seq_names[t])
-		gen_city(5, 7, test_seqs[t])
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
+	var horz_intersection_deg_seq_1 = [[1, 0, 0], [0, 1, 0]]
+	var vert_intersection_deg_seq_1 = [[0, 0, 0], [1, 0, 1]]
 	
+	var intersection_deg_test_seq = [horz_intersection_deg_seq_1, vert_intersection_deg_seq_1]
+	
+	var intersection_deg_seq_names = ["horz_intersection_deg_seq_1", "vert_intersection_deg_seq_1"]
+	
+	for t in range(0, shape_test_seqs.size()):
+		print(shape_test_seq_names[t])
+		gen_city(5, 7, shape_test_seqs[t])
+	
+	for t in range(0, intersection_deg_test_seq.size()):
+		print(intersection_deg_seq_names[t])
+		gen_city(5, 7, intersection_deg_test_seq[t])
+
 func gen_city(n: int, m: int, test_seq = null):
 	# Building -> road
 	# Building at 0,0 has:
@@ -99,8 +130,6 @@ func gen_city(n: int, m: int, test_seq = null):
 	var random_gen = RandomNumberGenerator.new()
 	var index_types = {"D": 0, "Q": 0, "L": 0}
 	
-	# FOR DEBUGGING, RUNNING A SMALL NUMBER OF ITERATIONS
-	road_removals = 8
 	var testing = false
 	if test_seq:
 		testing = true
@@ -155,6 +184,7 @@ func gen_city(n: int, m: int, test_seq = null):
 			var valid_removal = false
 			var matched_buildings: Array
 			var index_type
+			var ignore_deg_req = false
 			
 			# Horizontal road case
 			if (h_or_v == 0):
@@ -212,7 +242,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i, j + 1, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i, j + 1, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 					
 					# Check for S in top right corner of 2x2
 					elif (building_down == building_up_left):
@@ -221,7 +251,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i, j, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i, j, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 				
 				# S to L: Create 2x2 shape
 				elif (building_up[0] == "L" and building_down[0] == "S"):
@@ -232,7 +262,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i - 1, j - 1, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i - 1, j - 1, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 					
 					# Check for S in bottom right corner of 2x2
 					elif (building_up == building_down_left):
@@ -241,7 +271,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i - 1, j, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i - 1, j, 1, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 			# Vertical road case
 			else:
 				var building_right = buildings.get(bp[0]).get(bp[1])
@@ -298,7 +328,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i, j, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i, j, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 					
 					# Check for S in right bottom corner of 2x2
 					elif (building_left == building_right_up):
@@ -307,7 +337,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i + 1, j, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i + 1, j, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 				
 				# S to L: Create 2x2 shape
 				elif (building_right[0] == "L" and building_left[0] == "S"):
@@ -318,7 +348,7 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i + 1, j - 1, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i + 1, j - 1, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 					
 					# Check for S in left top of 2x2
 					elif (building_right == building_left_down):
@@ -327,10 +357,10 @@ func gen_city(n: int, m: int, test_seq = null):
 						index_type = "Q"
 						
 						# We need an additional removal, to skip a U shape and go straight to a 2x2
-						remove_road(i, j - 1, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+						remove_road(i, j - 1, 0, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 				
 			if (valid_removal):
-				remove_road(i, j, h_or_v, matched_buildings, index_type, buildings, index_types, intersections, road_array)
+				remove_road(i, j, h_or_v, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req)
 		
 		print(r)
 		print([i, j])
@@ -343,20 +373,27 @@ func gen_city(n: int, m: int, test_seq = null):
 		print(index_types)
 		print()
 
-func remove_road(i, j, h_or_v, matched_buildings, index_type, buildings, index_types, intersections, road_array):
-	# There is an L, with points up and left
+func remove_road(i, j, h_or_v, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req = false):
+	# First, check intersection degree.
+	# Reduce degree of both connected intersections by 1
+	# Horizontal:
+	if (h_or_v == 0):
+		if (intersections[i][j] - 1 < 2 or intersections[i][j + 1] - 1 < 2):
+			return false
+		intersections[i][j] = intersections[i][j] - 1
+		intersections[i][j + 1] = intersections[i][j + 1] - 1
+	# Vertical:
+	else:
+		if (intersections[i][j] - 1 < 2 or intersections[i + 1][j] - 1 - 1 < 2):
+			return false
+		intersections[i][j] = intersections[i][j] - 1
+		intersections[i + 1][j] = intersections[i + 1][j] - 1
+	
 	for building in matched_buildings:
 		building[0] = index_type
 		building[1] = index_types[index_type]
 	index_types[index_type] += 1
 	
 	road_array[i][j] = false
-	# Reduce degree of both connected intersections by 1
-	# Horizontal:
-	if (h_or_v == 0):
-		intersections[i][j] = intersections[i][j] - 1
-		intersections[i][j + 1] = intersections[i][j + 1] - 1
-	# Vertical:
-	else:
-		intersections[i][j] = intersections[i][j] - 1
-		intersections[i + 1][j] = intersections[i + 1][j] - 1
+	return true
+	
