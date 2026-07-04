@@ -31,7 +31,6 @@ offset_right = 325.0
 offset_bottom = 213.0
 
 [node name="start_button" type="Button" parent="." unique_id=186785004]
-visible = false
 offset_left = 36.0
 offset_top = 66.0
 offset_right = 265.0

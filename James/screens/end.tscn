@@ -1,24 +1,8 @@
 [gd_scene format=3 uid="uid://cq3fsnfpcm10b"]
 
 [ext_resource type="Script" uid="uid://dwu70323embja" path="res://James/screens/end.gd" id="1_2gtpu"]
-[ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="3_mgols"]
-[ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="4_3rdk6"]
-[ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="5_s0tsg"]
 
 [node name="End" type="Node2D" unique_id=1971923482]
 script = ExtResource("1_2gtpu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1749067539]
-
-[node name="EmptyBar" type="Sprite2D" parent="." unique_id=538116169]
-texture = ExtResource("3_mgols")
-
-[node name="Mask" type="Sprite2D" parent="EmptyBar" unique_id=899639687]
-clip_children = 1
-position = Vector2(3.0517578e-05, 0)
-texture = ExtResource("4_3rdk6")
-
-[node name="BarColour" type="Sprite2D" parent="EmptyBar/Mask" unique_id=869147867]
-position = Vector2(-866.5781, -9)
-scale = Vector2(-8.302492e-08, 2.25)
-texture = ExtResource("5_s0tsg")
