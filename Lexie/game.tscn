@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rsdipw2aqkhg"]
 
 [ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Lexie/minivan/minivan.tscn" id="1_aha5t"]
-[ext_resource type="PackedScene" uid="uid://cjo306ejux152" path="res://Lexie/highway/highway.tscn" id="1_jv400"]
+[ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Lexie/game.gd" id="1_bc5lc"]
 [ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Lexie/assets/space_pano.jpg" id="3_scbye"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
@@ -17,15 +17,13 @@ sky = SubResource("Sky_mahgt")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
 
-[node name="Node3D" type="Node3D" unique_id=607687153]
+[node name="game" type="Node3D" unique_id=607687153]
+script = ExtResource("1_bc5lc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
 environment = SubResource("Environment_vqkdg")
 
-[node name="Highway" parent="." unique_id=323616027 instance=ExtResource("1_jv400")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5920715, 0, 0)
-
-[node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
+[node name="Minivan" parent="." unique_id=1745930246 groups=["Player"] instance=ExtResource("1_aha5t")]
 forward_direction = Vector3(0, 0, -1)
 right_direction = Vector3(1, 0, 0)
 
@@ -35,7 +33,6 @@ fov = 90.0
 size = 1.935
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=69651716]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=284778864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.557846, 1.1467106, -11.000293)

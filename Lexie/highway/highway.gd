@@ -1,4 +1,2 @@
 class_name Highway
-extends Node3D
-
-
+extends TrackComponent
