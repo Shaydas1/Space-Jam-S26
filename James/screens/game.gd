@@ -1,12 +1,5 @@
-extends Node2D
+extends Node3D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	SceneManager.swap_screen(SceneManager.Screen.End)
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _ready():
+	TrackBuilder.build_debug()
 	pass
