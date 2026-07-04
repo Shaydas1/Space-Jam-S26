@@ -21,7 +21,7 @@ func _ready() -> void:
 	# 2x2 tests
 	# L, points down and right
 	var sqr_bottom_right_1 = [[0, 2, 2], [1, 2, 3], [0, 2, 3]]
-	var sqr_bottom_right_2 = [[0, 2, 2], [1, 2, 3], [0, 1, 3]]
+	var sqr_bottom_right_2 = [[0, 2, 2], [1, 2, 3], [1, 1, 3]]
 	# L, points down and left
 	var sqr_bottom_left_1 = [[0, 2, 2], [1, 2, 2], [0, 2, 1]]
 	var sqr_bottom_left_2 = [[0, 2, 2], [1, 2, 2], [1, 1, 2]]
