@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ctao8qsbnw45j"]
+
+[ext_resource type="Texture2D" uid="uid://4ptawt6wubua" path="res://Main/background/Untitled_Artwork_126.png" id="1_3o58p"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
+panorama = ExtResource("1_3o58p")
+
+[sub_resource type="Sky" id="Sky_mahgt"]
+sky_material = SubResource("PanoramaSkyMaterial_ijulh")
+
+[sub_resource type="Environment" id="Environment_vqkdg"]
+background_mode = 2
+sky = SubResource("Sky_mahgt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=207926968]
+environment = SubResource("Environment_vqkdg")

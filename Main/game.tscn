@@ -2,20 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="1_aha5t"]
 [ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Main/game.gd" id="1_bc5lc"]
-[ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Main/assets/space_pano.jpg" id="3_scbye"]
+[ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://Main/background/world_environment.tscn" id="2_n0uw5"]
 [ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="4_n0uw5"]
 [ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="5_rmus7"]
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="6_gvu17"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
-panorama = ExtResource("3_scbye")
-
-[sub_resource type="Sky" id="Sky_mahgt"]
-sky_material = SubResource("PanoramaSkyMaterial_ijulh")
-
-[sub_resource type="Environment" id="Environment_vqkdg"]
-background_mode = 2
-sky = SubResource("Sky_mahgt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
@@ -23,8 +13,7 @@ size = Vector3(14.392181, 1, 1)
 [node name="game" type="Node3D" unique_id=607687153]
 script = ExtResource("1_bc5lc")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
-environment = SubResource("Environment_vqkdg")
+[node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("2_n0uw5")]
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
 forward_direction = Vector3(0, 0, -1)
