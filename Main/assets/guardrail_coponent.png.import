@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eg0kjk8qy1i4"
-path.s3tc="res://.godot/imported/guardrail_coponent.png-9377375679ccd40e799d71028131d6ea.s3tc.ctex"
+path.s3tc="res://.godot/imported/guardrail_coponent.png-6dc87379c7f3b2aad12a97cec815c36a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Lexie/assets/guardrail_coponent.png"
-dest_files=["res://.godot/imported/guardrail_coponent.png-9377375679ccd40e799d71028131d6ea.s3tc.ctex"]
+source_file="res://Main/assets/guardrail_coponent.png"
+dest_files=["res://.godot/imported/guardrail_coponent.png-6dc87379c7f3b2aad12a97cec815c36a.s3tc.ctex"]
 
 [params]
 

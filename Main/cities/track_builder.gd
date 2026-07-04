@@ -1,7 +1,7 @@
 class_name TrackBuilder_Impl
 extends Node
 
-var highway_scene : PackedScene = preload("res://Lexie/highway/highway.tscn")
+var highway_scene : PackedScene = preload("res://Main/highway/highway.tscn")
 
 var number_highway_sections : int = 5
 var horizon_behind : int = 3 + number_highway_sections

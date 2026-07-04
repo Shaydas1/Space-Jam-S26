@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://rsdipw2aqkhg"]
 
-[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Lexie/minivan/minivan.tscn" id="1_aha5t"]
-[ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Lexie/game.gd" id="1_bc5lc"]
-[ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Lexie/assets/space_pano.jpg" id="3_scbye"]
+[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="1_aha5t"]
+[ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Main/game.gd" id="1_bc5lc"]
+[ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Main/assets/space_pano.jpg" id="3_scbye"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
 panorama = ExtResource("3_scbye")
@@ -23,7 +23,7 @@ script = ExtResource("1_bc5lc")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
 environment = SubResource("Environment_vqkdg")
 
-[node name="Minivan" parent="." unique_id=1745930246 groups=["Player"] instance=ExtResource("1_aha5t")]
+[node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
 forward_direction = Vector3(0, 0, -1)
 right_direction = Vector3(1, 0, 0)
 

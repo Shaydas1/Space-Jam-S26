@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7cvag16d5d00"
-path.s3tc="res://.godot/imported/Road.png-d5a0786680f2d5869e72f2176ae5cee8.s3tc.ctex"
+uid="uid://daslx68h3w4j7"
+path.s3tc="res://.godot/imported/right_player.png-8a048c834e4b9718900238817c3573ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Lexie/assets/Road.png"
-dest_files=["res://.godot/imported/Road.png-d5a0786680f2d5869e72f2176ae5cee8.s3tc.ctex"]
+source_file="res://Main/assets/right_player.png"
+dest_files=["res://.godot/imported/right_player.png-8a048c834e4b9718900238817c3573ba.s3tc.ctex"]
 
 [params]
 

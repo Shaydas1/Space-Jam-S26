@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daslx68h3w4j7"
-path.s3tc="res://.godot/imported/right_player.png-4f4e669373799c5ec2e766bfb6324ab2.s3tc.ctex"
+uid="uid://d3qpwbr0s46ly"
+path.s3tc="res://.godot/imported/pool_component.png-a62e21e9d2b8abaf22d92042bc7199e7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Lexie/assets/right_player.png"
-dest_files=["res://.godot/imported/right_player.png-4f4e669373799c5ec2e766bfb6324ab2.s3tc.ctex"]
+source_file="res://Main/assets/pool_component.png"
+dest_files=["res://.godot/imported/pool_component.png-a62e21e9d2b8abaf22d92042bc7199e7.s3tc.ctex"]
 
 [params]
 
