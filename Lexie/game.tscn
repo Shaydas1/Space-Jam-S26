@@ -14,6 +14,9 @@ sky_material = SubResource("PanoramaSkyMaterial_ijulh")
 background_mode = 2
 sky = SubResource("Sky_mahgt")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
+size = Vector3(14.392181, 1, 1)
+
 [node name="Node3D" type="Node3D" unique_id=607687153]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
@@ -30,3 +33,10 @@ right_direction = Vector3(1, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, -0.042559862, 6.29351, 12.432451)
 fov = 90.0
 size = 1.935
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=69651716]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=284778864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.557846, 1.1467106, -11.000293)
+shape = SubResource("BoxShape3D_vqkdg")

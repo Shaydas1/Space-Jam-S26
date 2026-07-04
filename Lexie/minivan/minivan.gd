@@ -79,7 +79,11 @@ func _physics_process(delta: float) -> void:
 	velocity = forward_speed * forward_direction + swerve_speed * right_direction
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("I collided with ", collision.get_collider().name)
+	
 	print(forward_speed, swerve_speed)
-
 
 	decay_swerve_speed(delta)

@@ -21,9 +21,14 @@ uv1_scale = Vector3(1, 8, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0wl2"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+albedo_color = Color(0.88, 0.88, 0.88, 1)
 albedo_texture = ExtResource("4_2khy6")
 uv1_scale = Vector3(1, 8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mahgt"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.19909999, 0.11879999, 0.44, 0.41568628)
 
 [node name="Highway" type="Node3D" unique_id=323616027]
 script = ExtResource("1_w6rp3")
@@ -32,6 +37,7 @@ script = ExtResource("1_w6rp3")
 curve = SubResource("Curve3D_a7er4")
 
 [node name="railing_left" type="CSGPolygon3D" parent="Path3D" unique_id=443655375]
+use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 2, 0.001, 2, 0.001, 0)
 mode = 2
 path_node = NodePath("..")
@@ -94,24 +100,9 @@ path_u_distance = 10.0
 path_joined = false
 material = SubResource("StandardMaterial3D_q0wl2")
 
-[node name="lane4" type="CSGPolygon3D" parent="Path3D" unique_id=282399579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.593, 0, 0)
-polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 9.27
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
-path_continuous_u = false
-path_u_distance = 10.0
-path_joined = false
-material = SubResource("StandardMaterial3D_q0wl2")
-
 [node name="railing_right" type="CSGPolygon3D" parent="Path3D" unique_id=1197482573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.813, 0, 0)
+use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 2, 0.001, 2, 0.001, 0)
 mode = 2
 path_node = NodePath("..")
@@ -125,3 +116,18 @@ path_continuous_u = false
 path_u_distance = 10.0
 path_joined = false
 material = SubResource("StandardMaterial3D_vqkdg")
+
+[node name="base" type="CSGPolygon3D" parent="Path3D" unique_id=573386344]
+polygon = PackedVector2Array(0, -0.5, 19.813, -0.5, 19.813, -0.3, 0, -0.3)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = SubResource("StandardMaterial3D_mahgt")
