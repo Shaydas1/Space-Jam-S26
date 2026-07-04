@@ -176,8 +176,8 @@ script = ExtResource("1_bc5lc")
 [node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("2_n0uw5")]
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
-forward_direction = Vector3(0, 0, -1)
 right_direction = Vector3(1, 0, 0)
+turn_rate = 90.0
 
 [node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=2141817629]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -0.042559862, 6.293509, 12.432451)

@@ -15,6 +15,9 @@ layout = ExtResource("3_kytuy")
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("4_gsxv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460, 0, 0)
+max_forward_speed = 0.0
+base_speed = 0.0
+min_forward_speed = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=1849207482]
 transform = Transform3D(-0.99746567, -0.0071192686, 0.07079251, 0.0060952823, 0.9827732, 0.18471532, -0.07088802, 0.18467867, -0.9802391, 0.5331474, 8.519126, -11.616753)
