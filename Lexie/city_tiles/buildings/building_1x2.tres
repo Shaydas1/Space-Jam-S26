@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://cefpdws20ydeg"]
+
+[ext_resource type="PackedScene" uid="uid://86niyjt0ree4" path="res://Lexie/city_tiles/buildings/building_1x2_200m.tscn" id="1_nc07o"]
+[ext_resource type="Script" uid="uid://bptop1rj6pa6j" path="res://Main/cities/building.gd" id="2_h5x0v"]
+
+[resource]
+script = ExtResource("2_h5x0v")
+buildings = Array[PackedScene]([ExtResource("1_nc07o")])
+kernel = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0)])
+bbox = Vector2i(1, 2)
+metadata/_custom_type_script = "uid://bptop1rj6pa6j"

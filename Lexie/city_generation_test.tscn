@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cmdisket7bxe0"]
+
+[ext_resource type="Script" uid="uid://hlkygtv165sg" path="res://Lexie/city_generation_test.gd" id="1_4yjee"]
+[ext_resource type="Resource" uid="uid://c7qwreegyskc6" path="res://Lexie/6_lane_200m.tres" id="2_orf3c"]
+[ext_resource type="Resource" uid="uid://cxhu3wvgbktg8" path="res://Lexie/test_city.tres" id="3_kytuy"]
+
+[node name="CityGenerationTest" type="Node3D" unique_id=563019748]
+script = ExtResource("1_4yjee")
+city_builder = ExtResource("2_orf3c")
+layout = ExtResource("3_kytuy")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1849207482]
+transform = Transform3D(-0.99746567, -0.0071192686, 0.07079251, 0, 0.99498135, 0.100060575, -0.07114959, 0.09980699, -0.9924597, 0.5331474, 8.519126, -7.4743404)
