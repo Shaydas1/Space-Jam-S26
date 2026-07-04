@@ -31,9 +31,9 @@ func junction_pos(x, y):
 
 func building_tile_pos(x, y):
     return Vector3(
-        (x + 1) * (street_width + street_length) / 2, 
+        x * (street_width + street_length) + (street_width + street_length) / 2, 
         0,
-        (y + 1) *  (street_width + street_length) / 2
+        y * (street_width + street_length) + (street_width + street_length) / 2
     )
 
 func build(layout : CityLayout, parent : Node3D):
@@ -62,6 +62,7 @@ func build(layout : CityLayout, parent : Node3D):
             if layout.get_street(x, y, false):
                 var new_street = street.instantiate()
                 parent.add_child(new_street)
+                new_street.rotate_y(90)
                 new_street.position = 0.5 * (junction_pos(x, y) + junction_pos(x, y + 1))
             
 
