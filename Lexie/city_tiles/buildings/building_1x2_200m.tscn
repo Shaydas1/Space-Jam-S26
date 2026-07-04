@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://86niyjt0ree4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji3bk"]
+shading_mode = 0
+albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vqkdg"]
+material = SubResource("StandardMaterial3D_ji3bk")
+size = Vector3(180, 300, 180)
+
+[node name="Building1x1_200m" type="Node3D" unique_id=1645341968]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2131850801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.796, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=877889490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, 0)
+mesh = SubResource("BoxMesh_vqkdg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=331725166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.593, 150, 0)
+mesh = SubResource("BoxMesh_vqkdg")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D" unique_id=790502935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.26213, 150, 0)
+mesh = SubResource("BoxMesh_vqkdg")

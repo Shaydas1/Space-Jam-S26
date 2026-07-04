@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cjnd72112edo1"]
+
+[ext_resource type="Material" uid="uid://baah7ln0a4xny" path="res://Lexie/city_tiles/materials/railing_csg_material.tres" id="1_g77xg"]
+[ext_resource type="Material" uid="uid://dqlb5ocaakxob" path="res://Lexie/city_tiles/materials/lane_csg_material.tres" id="2_ihd1y"]
+[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://Lexie/city_tiles/materials/base_csg_material.tres" id="3_55hg8"]
+
+[sub_resource type="Curve3D" id="Curve3D_a7er4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -200),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Path3D" type="Path3D" unique_id=163033979]
+curve = SubResource("Curve3D_a7er4")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=447334207]
+
+[node name="railing_left" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=2057082587]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 2, 0.001, 2, 0.001, 0)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 3.88
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("1_g77xg")
+
+[node name="lane1" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1487216823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.153, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("2_ihd1y")
+
+[node name="lane2" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=733651491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.441, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("2_ihd1y")
+
+[node name="lane3" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=449353861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.729, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("2_ihd1y")
+
+[node name="lane4" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=2140854156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.017, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("2_ihd1y")
+
+[node name="lane5" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=563120765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.305, 0, 0)
+polygon = PackedVector2Array(0, 0, 2.135, 0, 2.135, 0.001, 0, 0.001)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("2_ihd1y")
+
+[node name="railing_right" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=299909381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.593, 0, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 2, 0.001, 2, 0.001, 0)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 3.88
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("1_g77xg")
+
+[node name="base" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=391751789]
+polygon = PackedVector2Array(0, -0.5, 35.593, -0.5, 35.593, -0.3, 0, -0.3)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("3_55hg8")

@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://cjo306ejux152"]
 
-[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://Main/cities/track_component.gd" id="1_kl7s8"]
-[ext_resource type="Texture2D" uid="uid://eg0kjk8qy1i4" path="res://Main/assets/guardrail_coponent.png" id="3_r2fhe"]
-[ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://Main/assets/pool_component.png" id="4_2khy6"]
-[ext_resource type="Script" uid="uid://835vplagt2jl" path="res://Main/highway/load_trigger.gd" id="4_w6rp3"]
+[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://Main/cities/track_component.gd" id="1_jtbxh"]
+[ext_resource type="Texture2D" uid="uid://eg0kjk8qy1i4" path="res://Main/assets/guardrail_coponent.png" id="2_sppyo"]
+[ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://Main/assets/pool_component.png" id="3_cqi8k"]
+[ext_resource type="Script" uid="uid://835vplagt2jl" path="res://Main/highway/load_trigger.gd" id="4_iyu8d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqkdg"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
-albedo_texture = ExtResource("3_r2fhe")
+albedo_texture = ExtResource("2_sppyo")
 uv1_scale = Vector3(1, 8, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kl7s8"]
@@ -28,7 +28,7 @@ _surfaces = [{
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.88, 0.88, 0.88, 1)
-albedo_texture = ExtResource("4_2khy6")
+albedo_texture = ExtResource("3_cqi8k")
 uv1_scale = Vector3(1, 8, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w6rp3"]
@@ -103,7 +103,7 @@ size = Vector3(1, 5, 100)
 size = Vector3(20, 10, 10)
 
 [node name="Highway" type="Node3D" unique_id=204856688 node_paths=PackedStringArray("start_location", "end_location")]
-script = ExtResource("1_kl7s8")
+script = ExtResource("1_jtbxh")
 start_location = NodePath("start")
 end_location = NodePath("end")
 metadata/_custom_type_script = "uid://bfhtknecpm4dw"
@@ -147,7 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.80219, 2.0619745, -50)
 shape = SubResource("BoxShape3D_vqkdg")
 
 [node name="load_trigger" type="Area3D" parent="." unique_id=1684047139]
-script = ExtResource("4_w6rp3")
+script = ExtResource("4_iyu8d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="load_trigger" unique_id=656671122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.44666, 3.1059608, -100.629326)
