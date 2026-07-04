@@ -8,7 +8,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_vqkdg"]
 radius = 1.8158417
 
-[node name="Minivan" type="CharacterBody3D" unique_id=1745930246 node_paths=PackedStringArray("sprite")]
+[node name="Minivan" type="CharacterBody3D" unique_id=1745930246 node_paths=PackedStringArray("sprite") groups=["Player"]]
 script = ExtResource("1_nlm1g")
 tex_center = ExtResource("2_nj4xw")
 tex_left = ExtResource("3_5612k")

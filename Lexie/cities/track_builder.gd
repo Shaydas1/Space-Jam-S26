@@ -41,9 +41,7 @@ func _get_highway():
 		
 
 func _append_component(section : TrackComponent):
-	
-	print(section.global_position, section.get_parent())
-	
+
 	if active_track.is_empty():
 		get_tree().current_scene.add_child(section)
 		section.global_position = -section.start()
@@ -56,8 +54,7 @@ func _append_component(section : TrackComponent):
 		print((active_track.back().end()))
 		active_track.append(section)
 		
-	print(section.global_position, section.get_parent())
-		
+	
 
 func cull_track():
 	# remove all but the last component
@@ -65,12 +62,13 @@ func cull_track():
 		print("removing", i)
 		var section = active_track.pop_front()
 		
+		section.global_position = Vector3.ZERO
+		
 		if section.get_parent():
 			section.get_parent().remove_child(section)
 		
 		# reuse it if its highway
 		if all_highway_sections.has(section):
-			section.global_position = Vector3.ZERO
 			available_highway_sections.push_back(section)
 
 		else:
