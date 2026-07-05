@@ -34,7 +34,7 @@ var angle : float = 0.0
 
 
 func hit_driver():
-	forward_speed *= 0.8
+	forward_speed = min(forward_speed * 0.8, forward_speed)
 
 func hit_cop_glance():
 	pass
@@ -52,14 +52,14 @@ func update_texture():
 func _ready() -> void:
 	update_texture()
 
-func decay_swerve_speed(delta):
+func decay_swerve_speed(_delta):
 	swerve_speed = lerp(swerve_speed, 0.0, swerve_decay)
 
 	if abs(swerve_speed) < 5:
 		swerve_speed = 0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_texture()
 
 func _update_angle(new_angle):

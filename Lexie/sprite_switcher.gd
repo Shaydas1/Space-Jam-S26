@@ -7,8 +7,6 @@ extends Node3D
 
 
 func _process(delta: float) -> void:
-	rotate_y(deg_to_rad(30) * delta)
-
 	var forward: Vector3 = -global_transform.basis.z
 	var camera := get_viewport().get_camera_3d()
 	var to_camera := global_position.direction_to(camera.global_position)
