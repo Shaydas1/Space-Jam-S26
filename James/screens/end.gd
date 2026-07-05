@@ -9,3 +9,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_restart_button_pressed() -> void:
+	SceneManager.swap_screen(SceneManager.Screen.Game)
+
+
+func _on_menu_button_pressed() -> void:
+	SceneManager.swap_screen(SceneManager.Screen.Start)

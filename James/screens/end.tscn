@@ -1,56 +1,41 @@
 [gd_scene format=3 uid="uid://cq3fsnfpcm10b"]
 
 [ext_resource type="Script" uid="uid://dwu70323embja" path="res://James/screens/end.gd" id="1_2gtpu"]
-[ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="3_mgols"]
-[ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="4_3rdk6"]
-[ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="5_s0tsg"]
-[ext_resource type="Texture2D" uid="uid://w0rhnwsm6mfx" path="res://Main/assets/cat/cat_1.webp" id="6_p80uq"]
-[ext_resource type="Texture2D" uid="uid://mug2r8p5k76t" path="res://Main/assets/cat/cat_2.webp" id="7_hk152"]
-[ext_resource type="Texture2D" uid="uid://d4mbvnp60o7m2" path="res://Main/assets/cat/cat_3.webp" id="8_51lg6"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4gjug"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_p80uq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_hk152")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_51lg6")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://dl1me05ocei6a" path="res://Main/assets/end_screen/end_screen_background.png" id="2_8egqf"]
+[ext_resource type="Texture2D" uid="uid://c5ngur5ccocim" path="res://Main/assets/end_screen/restart.png" id="3_mgols"]
+[ext_resource type="Texture2D" uid="uid://bycyjw6txdepc" path="res://Main/assets/end_screen/menu.png" id="4_3rdk6"]
 
 [node name="End" type="Node2D" unique_id=1971923482]
 script = ExtResource("1_2gtpu")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=24785319]
-follow_viewport_enabled = true
+[node name="Background" type="Sprite2D" parent="." unique_id=41474854]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8egqf")
 
-[node name="Speedometer" type="Node2D" parent="UI" unique_id=1502502111]
-
-[node name="EmptyBar" type="Sprite2D" parent="UI/Speedometer" unique_id=700883113]
-position = Vector2(173, 623)
-scale = Vector2(0.2, 0.2)
+[node name="Restart" type="Sprite2D" parent="." unique_id=994954259]
+position = Vector2(976, 380)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_mgols")
 
-[node name="Mask" type="Sprite2D" parent="UI/Speedometer/EmptyBar" unique_id=163656606]
-clip_children = 1
-position = Vector2(3.0517578e-05, 0)
+[node name="Menu" type="Sprite2D" parent="." unique_id=190083957]
+position = Vector2(978, 484)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_3rdk6")
 
-[node name="BarColour" type="Sprite2D" parent="UI/Speedometer/EmptyBar/Mask" unique_id=552401538]
-modulate = Color(1, 0.5294118, 0, 1)
-position = Vector2(-864.99994, 124.99994)
-scale = Vector2(19.35, 4.5)
-texture = ExtResource("5_s0tsg")
+[node name="RestartButton" type="Button" parent="." unique_id=1691795275]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 867.0
+offset_top = 339.0
+offset_right = 1090.0
+offset_bottom = 421.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2143213915]
-sprite_frames = SubResource("SpriteFrames_4gjug")
-frame_progress = 0.3653231
+[node name="MenuButton" type="Button" parent="." unique_id=263214410]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 888.0
+offset_top = 452.0
+offset_right = 1065.0
+offset_bottom = 517.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1684379249]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
