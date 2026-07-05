@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="35_x6ew8"]
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
+[ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
@@ -187,6 +188,7 @@ minivan = NodePath("Minivan")
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 right_direction = Vector3(1, 0, 0)
+min_forward_speed = 80.0
 
 [node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=2141817629]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -0.042559862, 6.293509, 12.432451)
@@ -242,32 +244,32 @@ sprite_frames = SubResource("SpriteFrames_ie18w")
 [node name="DriverGrapple" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=670764809]
 visible = false
 position = Vector2(1646.6669, 513.3334)
-scale = Vector2(-0.7, -0.7)
+scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_rxntd")
 frame_progress = 0.5604991
 
 [node name="DriverSpeedDrop" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1783063786]
 visible = false
 position = Vector2(1680, 513.3334)
-scale = Vector2(-0.7, -0.7)
+scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_qjjsu")
 
 [node name="DriverSpeedLow" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1844958232]
 visible = false
 position = Vector2(1646.6669, 513.3334)
-scale = Vector2(-0.7, -0.7)
+scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_xb0nr")
 
 [node name="DriverSpeedMax" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=803294048]
 visible = false
 position = Vector2(1646.6667, 516.66675)
-scale = Vector2(-0.7, -0.7)
+scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_2u8nc")
 
 [node name="DriverSpeedUp" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1873440700]
 visible = false
 position = Vector2(1646.6669, 520.00006)
-scale = Vector2(-0.7, -0.7)
+scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_2tkkp")
 
 [node name="FancySpeedometer" type="Node2D" parent="CanvasLayer" unique_id=1178464461 node_paths=PackedStringArray("body")]
@@ -290,12 +292,12 @@ position = Vector2(-864.99994, 124.99994)
 scale = Vector2(19.35, 4.5)
 texture = ExtResource("36_bjffo")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1291387195]
+[node name="SpeedometerBox" type="Sprite2D" parent="CanvasLayer" unique_id=1291387195]
 position = Vector2(116, 497)
 scale = Vector2(0.2, 0.214)
 texture = ExtResource("32_qs41t")
 
-[node name="TextSpeedometer" type="Label" parent="CanvasLayer/Sprite2D" unique_id=806235766 node_paths=PackedStringArray("body")]
+[node name="TextSpeedometer" type="Label" parent="CanvasLayer/SpeedometerBox" unique_id=806235766 node_paths=PackedStringArray("body")]
 offset_left = -225.00002
 offset_top = -285.04672
 offset_right = 295.0
@@ -305,6 +307,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("36_dh0gb")
 body = NodePath("../../../Minivan")
+
+[node name="ScoreBox" type="Sprite2D" parent="CanvasLayer" unique_id=1790153027]
+position = Vector2(1071, 570)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("32_qs41t")
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBox" unique_id=1381292064]
+offset_left = -279.99997
+offset_top = -344.99997
+offset_right = 350.00003
+offset_bottom = 285.00003
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("37_dh0gb")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
 stream = ExtResource("32_hb0ms")
