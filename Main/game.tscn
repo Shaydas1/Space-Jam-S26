@@ -40,8 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
 [ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
-[ext_resource type="AudioStream" uid="uid://crpj5yecukjw5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.ogg" id="41_d5rxt"]
-[ext_resource type="AudioStream" uid="uid://b26n3opmsgoll" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.ogg" id="42_d5rxt"]
+[ext_resource type="AudioStream" uid="uid://bgbknghs7pbi5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="41_d5rxt"]
+[ext_resource type="AudioStream" uid="uid://bl6j6lx3l77q0" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="42_d5rxt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
