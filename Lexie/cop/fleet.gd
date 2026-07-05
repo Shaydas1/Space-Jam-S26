@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 
 
-@export var global_speedup_rate: float = 1.005
+@export var global_speedup_rate: float = 1.01
 @export var speed_cap : float = 400
 
 
