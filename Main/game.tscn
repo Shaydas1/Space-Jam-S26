@@ -233,51 +233,51 @@ texture = ExtResource("32_qs41t")
 
 [node name="Cat" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=683554280]
 visible = false
-position = Vector2(1600, 520)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1613.3334, 496.6667)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_4gjug")
 
 [node name="Cop" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1400432753]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1653.3335, 513.3334)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_8oc6l")
 
 [node name="Girl" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1483791681]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1643.3335, 503.33337)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_ie18w")
 
 [node name="DriverGrapple" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=670764809]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1646.6669, 513.3334)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_rxntd")
 frame_progress = 0.5604991
 
 [node name="DriverSpeedDrop" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1783063786]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1680, 513.3334)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_qjjsu")
 
 [node name="DriverSpeedLow" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1844958232]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1646.6669, 513.3334)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_xb0nr")
 
 [node name="DriverSpeedMax" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=803294048]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1646.6667, 516.66675)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_2u8nc")
 
 [node name="DriverSpeedUp" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1873440700]
 visible = false
-position = Vector2(1800, 720)
-scale = Vector2(-0.3, -0.3)
+position = Vector2(1646.6669, 520.00006)
+scale = Vector2(-0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_2tkkp")
 
 [node name="FancySpeedometer" type="Node2D" parent="CanvasLayer" unique_id=1178464461 node_paths=PackedStringArray("body")]
