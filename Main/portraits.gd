@@ -59,11 +59,11 @@ func triggerRandomDialogue():
 	var random_index = random_gen.randi_range(0, dialogue_options.size() - 1)
 	var chosen_dialogue = dialogue_options[random_index]
 	switch_portrait(chosen_dialogue[0])
-	get_node("DialogueBox").get_node("DialogueText").text = chosen_dialogue[1]
+	get_node("neccessary").get_node("DialogueText").text = chosen_dialogue[1]
 	
 
 func cleanupDialogue():
-	get_node("DialogueBox").get_node("DialogueText").text = ""
+	get_node("neccessary").get_node("DialogueText").text = ""
 
 # Every 8 seconds, show dialogue for 3s
 func _on_trigger_dialogue_timer_timeout() -> void:

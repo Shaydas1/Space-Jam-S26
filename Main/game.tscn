@@ -30,9 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://5io6dtl2x7wk" path="res://Main/assets/driver/speed_up/player_speed_up_2.webp" id="26_tdxld"]
 [ext_resource type="Texture2D" uid="uid://dxjqu2x2pgx1a" path="res://Main/assets/driver/speed_up/player_speed_up_3.webp" id="27_cs1fn"]
 [ext_resource type="Texture2D" uid="uid://cwsud0r3qs4tu" path="res://Main/assets/portrait_holder/portrait_bg.webp" id="31_qs41t"]
+[ext_resource type="Texture2D" uid="uid://ii1367e714vs" path="res://Main/assets/Dialogue_box/Background and shadow.webp" id="32_c4kj7"]
 [ext_resource type="AudioStream" uid="uid://dmdnhb6t1jcro" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="32_hb0ms"]
 [ext_resource type="Texture2D" uid="uid://de8y0k675yoy7" path="res://Main/assets/portrait_holder/portrait_holder.webp" id="32_qs41t"]
 [ext_resource type="Script" uid="uid://ddpju6kyv1wtu" path="res://Main/acceleromotor.gd" id="32_x6ew8"]
+[ext_resource type="Texture2D" uid="uid://b5k5o03s5mwjk" path="res://Main/assets/Dialogue_box/borders.png" id="33_d5rxt"]
 [ext_resource type="AudioStream" uid="uid://dkcg4re4c0000" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="33_hb0ms"]
 [ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="34_i3kjt"]
 [ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="35_x6ew8"]
@@ -280,17 +282,27 @@ autostart = true
 wait_time = 3.0
 one_shot = true
 
-[node name="DialogueBox" type="Sprite2D" parent="CanvasLayer/Portraits" unique_id=1008628955]
-position = Vector2(659.9999, 566.6666)
-scale = Vector2(-1, -1)
-texture = ExtResource("32_qs41t")
+[node name="DialogueBackground" type="Sprite2D" parent="CanvasLayer/Portraits" unique_id=923415430]
+position = Vector2(193.33337, 636.66656)
+rotation = -3.1415925
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("32_c4kj7")
 
-[node name="DialogueText" type="Label" parent="CanvasLayer/Portraits/DialogueBox" unique_id=1327224319]
-offset_left = -260.7213
-offset_top = -269.89444
-offset_right = 307.6811
-offset_bottom = 245.10721
-theme_override_font_sizes/font_size = 100
+[node name="DialogueBox" type="Sprite2D" parent="CanvasLayer/Portraits/DialogueBackground" unique_id=1008628955]
+position = Vector2(-0.21875, 0.05517578)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("33_d5rxt")
+
+[node name="neccessary" type="Sprite2D" parent="CanvasLayer/Portraits" unique_id=591148414]
+scale = Vector2(-1, -1)
+
+[node name="DialogueText" type="Label" parent="CanvasLayer/Portraits/neccessary" unique_id=1327224319]
+offset_left = -1266.6666
+offset_top = -713.33325
+offset_right = 863.3334
+offset_bottom = -483.3333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
 
 [node name="FancySpeedometer" type="Node2D" parent="CanvasLayer" unique_id=1178464461 node_paths=PackedStringArray("body")]
 script = ExtResource("32_x6ew8")
