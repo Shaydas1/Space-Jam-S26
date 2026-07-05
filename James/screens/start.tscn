@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://cf3uj0afqt767"]
 
 [ext_resource type="Script" uid="uid://dsk5pdqpkya45" path="res://James/screens/start.gd" id="1_bitbn"]
-[ext_resource type="Texture2D" uid="uid://bp8fo8encvwlt" path="res://Main/assets/start_screen/title_screen_background.webp" id="5_abemq"]
+[ext_resource type="Texture2D" uid="uid://dpxtjv4sm3xkb" path="res://Main/assets/start_screen/New start background.png" id="2_1sono"]
+[ext_resource type="Texture2D" uid="uid://k3wqrpqpuanf" path="res://Main/assets/start_screen/New start button.png" id="4_1sono"]
 [ext_resource type="Texture2D" uid="uid://bxe7eus6oesi8" path="res://Main/assets/start_screen/options.webp" id="6_5a71q"]
-[ext_resource type="Texture2D" uid="uid://bavyheffibxxi" path="res://Main/assets/start_screen/start.webp" id="7_wmr2p"]
 
 [node name="Start" type="Node2D" unique_id=571347030]
 script = ExtResource("1_bitbn")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1790716810]
-texture = ExtResource("5_abemq")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_1sono")
 
 [node name="options" type="Sprite2D" parent="." unique_id=784910794]
 visible = false
@@ -18,9 +19,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_5a71q")
 
 [node name="start" type="Sprite2D" parent="." unique_id=1030461469]
-position = Vector2(146, 96)
+position = Vector2(141, 182)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_wmr2p")
+texture = ExtResource("4_1sono")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1140585633]
 
@@ -33,10 +34,10 @@ offset_bottom = 213.0
 
 [node name="start_button" type="Button" parent="." unique_id=186785004]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 36.0
-offset_top = 66.0
-offset_right = 265.0
-offset_bottom = 127.0
+offset_left = 21.0
+offset_top = 139.0
+offset_right = 263.0
+offset_bottom = 219.0
 
 [connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
