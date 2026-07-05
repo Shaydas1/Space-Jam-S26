@@ -318,9 +318,10 @@ body = NodePath("../../../Minivan")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
 stream = ExtResource("32_hb0ms")
+volume_db = -15.0
 autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=810895329]
 stream = ExtResource("33_hb0ms")
-volume_db = 10.698
+volume_db = -5.0
 autoplay = true

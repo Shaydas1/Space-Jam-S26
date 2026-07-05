@@ -35,12 +35,16 @@ shape = SubResource("SphereShape3D_vqkdg")
 
 [node name="Engine" type="AudioStreamPlayer" parent="." unique_id=1863941636]
 stream = ExtResource("5_io3sn")
+volume_db = -15.0
 
 [node name="Brake" type="AudioStreamPlayer" parent="." unique_id=295383884]
 stream = ExtResource("6_d3it3")
+volume_db = -15.0
 
 [node name="Meow" type="AudioStreamPlayer" parent="." unique_id=788910669]
 stream = ExtResource("7_1atqa")
+volume_db = -15.0
 
 [node name="Bonk" type="AudioStreamPlayer" parent="." unique_id=135727985]
 stream = ExtResource("8_xuiwb")
+volume_db = -10.0
