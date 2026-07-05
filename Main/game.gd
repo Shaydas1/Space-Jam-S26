@@ -7,3 +7,7 @@ func _ready():
 	var start_loc = TrackBuilder.active_track[TrackBuilder.horizon_behind].start()
 	minivan.global_position.x = start_loc.x
 	minivan.global_position.z = start_loc.z
+
+
+func _on_background_music_finished() -> void:
+	get_node("BackgroundMusic").play()

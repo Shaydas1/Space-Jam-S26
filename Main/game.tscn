@@ -379,3 +379,4 @@ autoplay = true
 [connection signal="speeding_up" from="Minivan" to="CanvasLayer/Portraits" method="_on_minivan_speeding_up"]
 [connection signal="timeout" from="CanvasLayer/Portraits/TriggerDialogueTimer" to="CanvasLayer/Portraits" method="_on_trigger_dialogue_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/Portraits/EndDialogueTimer" to="CanvasLayer/Portraits" method="_on_end_dialogue_timer_timeout"]
+[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
