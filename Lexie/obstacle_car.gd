@@ -1,7 +1,7 @@
 class_name ObstacleCar
 extends CharacterBody3D
 
-@export var forward_velocity : float = 100
+@export var forward_velocity : float = 90
 @export var time_to_die : float = 5
 
 @onready var crashed : bool = false
@@ -61,8 +61,9 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	var track_region = area as TrackRegion
 	if(track_region != null):
-		#Spawner. 
-		pass
+		
+		Spawner.you_have_populated(track_region.track.track_id)
+		
 
 func _on_body_entered(body):
 	if not is_active:
