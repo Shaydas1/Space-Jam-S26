@@ -32,6 +32,11 @@ var accel_falloff_rate : float
 var angle : float = 0.0
 @export var angle_correction_decay : float = 5.0
 
+signal speeding_up
+signal slowing_down
+signal high_speed
+signal low_speed
+
 
 func hit_driver():
 	forward_speed = min(forward_speed * 0.8, forward_speed)
@@ -95,6 +100,7 @@ func _physics_process(delta: float) -> void:
 		# Start playing engine noise
 		if not get_node("Engine").playing:
 			get_node("Engine").play()
+		speeding_up.emit()
 	
 	elif inp < 0:
 		if forward_speed > min_forward_speed:
@@ -102,21 +108,29 @@ func _physics_process(delta: float) -> void:
 		# Start playing break noise
 		if not get_node("Brake").playing:
 			get_node("Brake").play()
+		slowing_down.emit()
 		
 	elif forward_speed > base_speed:
 		forward_speed = lerp(forward_speed, base_speed, slow_down_rate * delta)
 		# Stop playing engine and break noises
 		get_node("Engine").stop()
 		get_node("Brake").stop()
+		slowing_down.emit()
 
 	elif forward_speed < base_speed:
 		forward_speed = lerp(forward_speed, base_speed, speed_up_rate * delta)
 		# Stop playing engine and break noises
 		get_node("Engine").stop()
 		get_node("Brake").stop()
+		speeding_up.emit()
 
 	velocity = forward_speed * -transform.basis.z + swerve_speed * transform.basis.x
-
+	
+	if forward_speed >= 190:
+		high_speed.emit()
+	
+	if forward_speed <= 90:
+		low_speed.emit()
 
 	move_and_slide()
 	

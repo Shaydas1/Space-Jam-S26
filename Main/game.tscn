@@ -325,3 +325,8 @@ autoplay = true
 stream = ExtResource("33_hb0ms")
 volume_db = -5.0
 autoplay = true
+
+[connection signal="high_speed" from="Minivan" to="CanvasLayer/Portraits" method="_on_minivan_high_speed"]
+[connection signal="low_speed" from="Minivan" to="CanvasLayer/Portraits" method="_on_minivan_low_speed"]
+[connection signal="slowing_down" from="Minivan" to="CanvasLayer/Portraits" method="_on_minivan_slowing_down"]
+[connection signal="speeding_up" from="Minivan" to="CanvasLayer/Portraits" method="_on_minivan_speeding_up"]
