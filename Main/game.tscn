@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="1_aha5t"]
 [ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Main/game.gd" id="1_bc5lc"]
-[ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Main/assets/space_pano.jpg" id="3_scbye"]
+[ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://Main/background/world_environment.tscn" id="2_bjffo"]
 [ext_resource type="Texture2D" uid="uid://w0rhnwsm6mfx" path="res://Main/assets/cat/cat_1.webp" id="4_058bf"]
 [ext_resource type="Script" uid="uid://c042f52trfjem" path="res://Main/portraits.gd" id="4_ryfap"]
 [ext_resource type="Texture2D" uid="uid://mug2r8p5k76t" path="res://Main/assets/cat/cat_2.webp" id="5_ryfap"]
@@ -39,16 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
 [ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
-panorama = ExtResource("3_scbye")
-
-[sub_resource type="Sky" id="Sky_mahgt"]
-sky_material = SubResource("PanoramaSkyMaterial_ijulh")
-
-[sub_resource type="Environment" id="Environment_vqkdg"]
-background_mode = 2
-sky = SubResource("Sky_mahgt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
@@ -193,10 +183,10 @@ animations = [{
 script = ExtResource("1_bc5lc")
 minivan = NodePath("Minivan")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
-environment = SubResource("Environment_vqkdg")
+[node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("2_bjffo")]
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 right_direction = Vector3(1, 0, 0)
 min_forward_speed = 80.0
 
