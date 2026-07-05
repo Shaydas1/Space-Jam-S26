@@ -5,4 +5,4 @@ extends Label
 
 func _process(delta: float) -> void:
 	if body != null:
-		text = str(body.forward_speed)
+		text = str(int(round(body.forward_speed)))
