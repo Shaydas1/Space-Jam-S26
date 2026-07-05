@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://d1s80l6xw4h8j" path="res://Main/assets/driver/speed_up/player_speed_up_1.webp" id="29_nu5lc"]
 [ext_resource type="Texture2D" uid="uid://5io6dtl2x7wk" path="res://Main/assets/driver/speed_up/player_speed_up_2.webp" id="30_gvvkp"]
 [ext_resource type="Texture2D" uid="uid://dxjqu2x2pgx1a" path="res://Main/assets/driver/speed_up/player_speed_up_3.webp" id="31_sbarh"]
+[ext_resource type="AudioStream" uid="uid://dmdnhb6t1jcro" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="32_rdjxj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
 panorama = ExtResource("2_rdjxj")
@@ -271,3 +272,7 @@ visible = false
 position = Vector2(1800, 720)
 scale = Vector2(-0.3, -0.3)
 sprite_frames = SubResource("SpriteFrames_2tkkp")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1135019988]
+stream = ExtResource("32_rdjxj")
+autoplay = true

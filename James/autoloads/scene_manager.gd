@@ -8,7 +8,7 @@ var current_screen : Screen = Screen.Start
 
 var screen_map : Dictionary[Screen, PackedScene] = {
 	Screen.Start : load("res://James/screens/start.tscn"),
-	Screen.Game : load("res://Main/game.tscn"),
+	Screen.Game : load("res://James/screens/game.tscn"),
 	Screen.End : load("res://James/screens/end.tscn"),
 }
 
