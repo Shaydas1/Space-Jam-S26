@@ -1,6 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dg1jf45i5cla8"]
 
 [resource]
+render_priority = -1
 transparency = 1
 depth_draw_mode = 1
 shading_mode = 0
