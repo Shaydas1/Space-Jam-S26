@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dlcqoxlopidnx"]
 
 [ext_resource type="Script" uid="uid://ds6l1ckvoabg" path="res://Main/minivan/minivan.gd" id="1_rw43d"]
-[ext_resource type="Texture2D" uid="uid://qm13iv30yabc" path="res://Main/assets/center_player.png" id="2_jacwy"]
-[ext_resource type="Texture2D" uid="uid://c13pyvjxcrcox" path="res://Main/assets/left_player.png" id="3_utoyv"]
-[ext_resource type="Texture2D" uid="uid://daslx68h3w4j7" path="res://Main/assets/right_player.png" id="4_bexbh"]
+[ext_resource type="Texture2D" uid="uid://bd7nbxx8qac8c" path="res://Main/minivan/player_back.png" id="2_bexbh"]
+[ext_resource type="Texture2D" uid="uid://bngeap0kflsl4" path="res://Main/minivan/player_side.png" id="3_io3sn"]
 [ext_resource type="AudioStream" uid="uid://defpllmqcdnd6" path="res://Main/assets/Sounds/Car_loop_test.mp3" id="5_io3sn"]
 [ext_resource type="AudioStream" uid="uid://djreiujy0fnkr" path="res://Main/assets/Sounds/536769__egomassive__tire.ogg" id="6_d3it3"]
 [ext_resource type="AudioStream" uid="uid://4611iwauwgjq" path="res://Main/assets/Sounds/682083__henkonen__cat-yowl-distant.wav" id="7_1atqa"]
@@ -14,13 +13,13 @@ radius = 1.8158417
 
 [node name="Minivan" type="CharacterBody3D" unique_id=1745930246 node_paths=PackedStringArray("sprite") groups=["Player"]]
 script = ExtResource("1_rw43d")
-tex_center = ExtResource("2_jacwy")
-tex_left = ExtResource("3_utoyv")
-tex_right = ExtResource("4_bexbh")
+tex_center = ExtResource("2_bexbh")
+tex_left = ExtResource("3_io3sn")
+tex_right = ExtResource("3_io3sn")
 sprite = NodePath("Sprite3D")
 max_forward_speed = 200.0
 base_speed = 100.0
-min_forward_speed = 40.0
+min_forward_speed = 10.0
 accel_rate = 0.5
 break_rate = 5.0
 slow_down_rate = 3.0
@@ -28,8 +27,9 @@ max_swerve_speed = 40.0
 swerve_decay = 0.5
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=811943943]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 render_priority = 1
-texture = ExtResource("2_jacwy")
+texture = ExtResource("2_bexbh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1097857485]
 shape = SubResource("SphereShape3D_vqkdg")

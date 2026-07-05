@@ -52,9 +52,11 @@ func update_texture():
 
 	elif swerve_speed < 5:
 		sprite.texture = tex_right
+		sprite.flip_h = true
 
 	elif swerve_speed > 5:
 		sprite.texture = tex_left
+		sprite.flip_h = false
 
 func _ready() -> void:
 	update_texture()
