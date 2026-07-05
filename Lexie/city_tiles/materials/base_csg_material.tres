@@ -2,5 +2,6 @@
 
 [resource]
 transparency = 1
+depth_draw_mode = 1
 shading_mode = 0
 albedo_color = Color(0.2, 0.11764706, 0.4392157, 0.59607846)

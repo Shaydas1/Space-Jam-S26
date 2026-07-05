@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://Main/assets/pool_component.png" id="1_sg3ud"]
 
 [resource]
+render_priority = 1
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.88, 0.88, 0.88, 1)

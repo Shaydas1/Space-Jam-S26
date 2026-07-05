@@ -20,7 +20,7 @@ tex_right = ExtResource("4_bexbh")
 sprite = NodePath("Sprite3D")
 max_forward_speed = 200.0
 base_speed = 100.0
-min_forward_speed = 80.0
+min_forward_speed = 40.0
 accel_rate = 0.5
 break_rate = 5.0
 slow_down_rate = 3.0
@@ -28,6 +28,7 @@ max_swerve_speed = 40.0
 swerve_decay = 0.5
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=811943943]
+render_priority = 1
 texture = ExtResource("2_jacwy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1097857485]
