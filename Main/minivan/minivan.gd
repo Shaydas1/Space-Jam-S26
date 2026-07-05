@@ -39,7 +39,7 @@ signal low_speed
 
 
 func hit_driver():
-	forward_speed = min(forward_speed * 0.8, forward_speed)
+	forward_speed = min(forward_speed * 0.6, base_speed)
 	if not get_node("Bonk").playing:
 			get_node("Bonk").play()
 

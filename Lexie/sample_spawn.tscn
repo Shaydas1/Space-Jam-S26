@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bycohv5ewplrp"]
 
-[ext_resource type="PackedScene" uid="uid://dp7idto3wdx8t" path="res://Lexie/obstacle_car.tscn" id="1_tyra8"]
+[ext_resource type="PackedScene" uid="uid://dp7idto3wdx8t" path="res://Lexie/obstacle_car/obstacle_car.tscn" id="1_tyra8"]
 [ext_resource type="PackedScene" uid="uid://dl5c57r75mm3v" path="res://Lexie/city_tiles/roads/6_lane_highway.tscn" id="2_yyqmw"]
 
 [node name="SampleSpawn" type="Node3D" unique_id=1502393608]
