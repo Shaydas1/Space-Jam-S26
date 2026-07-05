@@ -23,11 +23,48 @@ sky = SubResource("Sky_mahgt")
 [sub_resource type="BoxShape3D" id="BoxShape3D_4wlpe"]
 size = Vector3(2.338028, 1.2451172, 2.4203186)
 
-[node name="game" type="Node3D" unique_id=607687153]
+[node name="game" type="Node3D" unique_id=607687153 node_paths=PackedStringArray("minivan")]
 script = ExtResource("1_40hd6")
+minivan = NodePath("Minivan")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
 environment = SubResource("Environment_vqkdg")
+
+[node name="cop" type="Node3D" parent="." unique_id=31089903]
+transform = Transform3D(0.03864996, 0, -0.99925286, 0, 1, 0, 0.99925286, 0, 0.03864996, 0, 2.3698626, 10.454923)
+script = ExtResource("4_57cd3")
+
+[node name="spin_select" type="Node3D" parent="cop" unique_id=2025091047 node_paths=PackedStringArray("left", "right", "front", "back")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
+script = ExtResource("4_eue23")
+left = NodePath("side_left")
+right = NodePath("side_right")
+front = NodePath("front")
+back = NodePath("back")
+
+[node name="back" type="Sprite3D" parent="cop/spin_select" unique_id=1833994083]
+modulate = Color(0, 0.58937395, 0.757786, 1)
+texture = ExtResource("5_64jby")
+
+[node name="side_right" type="Sprite3D" parent="cop/spin_select" unique_id=805162930]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
+modulate = Color(0.79612327, 0.42255515, 1.92523e-07, 1)
+texture = ExtResource("5_eue23")
+
+[node name="side_left" type="Sprite3D" parent="cop/spin_select" unique_id=403979943]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
+modulate = Color(0, 0.5689796, 0.84642637, 1)
+texture = ExtResource("5_eue23")
+
+[node name="front" type="Sprite3D" parent="cop/spin_select" unique_id=1448413914]
+modulate = Color(1, 0.53333336, 0, 1)
+texture = ExtResource("4_stb5r")
+
+[node name="Area3D" type="Area3D" parent="cop" unique_id=910644875]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cop/Area3D" unique_id=399711490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27072906, -0.122558594, -0.16722107)
+shape = SubResource("BoxShape3D_4wlpe")
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("3_o63uj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.230979, 0)
@@ -39,46 +76,10 @@ transform = Transform3D(1, 0, 0, 0, 0.8941542, 0.44775903, 0, -0.44775903, 0.894
 fov = 90.0
 size = 1.935
 
-[node name="cop" type="Node3D" parent="Minivan" unique_id=31089903]
-transform = Transform3D(0.03864996, 0, -0.99925286, 0, 1, 0, 0.99925286, 0, 0.03864996, 0, 0.13888359, 10.454923)
-script = ExtResource("4_57cd3")
-
-[node name="spin_select" type="Node3D" parent="Minivan/cop" unique_id=2025091047 node_paths=PackedStringArray("left", "right", "front", "back")]
-transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
-script = ExtResource("4_eue23")
-left = NodePath("side_left")
-right = NodePath("side_right")
-front = NodePath("front")
-back = NodePath("back")
-
-[node name="back" type="Sprite3D" parent="Minivan/cop/spin_select" unique_id=1833994083]
-modulate = Color(0, 0.58937395, 0.757786, 1)
-texture = ExtResource("5_64jby")
-
-[node name="side_right" type="Sprite3D" parent="Minivan/cop/spin_select" unique_id=805162930]
-transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
-modulate = Color(0.79612327, 0.42255515, 1.92523e-07, 1)
-texture = ExtResource("5_eue23")
-
-[node name="side_left" type="Sprite3D" parent="Minivan/cop/spin_select" unique_id=403979943]
-transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
-modulate = Color(0, 0.5689796, 0.84642637, 1)
-texture = ExtResource("5_eue23")
-
-[node name="front" type="Sprite3D" parent="Minivan/cop/spin_select" unique_id=1448413914]
-modulate = Color(1, 0.53333336, 0, 1)
-texture = ExtResource("4_stb5r")
-
-[node name="Area3D" type="Area3D" parent="Minivan/cop" unique_id=910644875]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Minivan/cop/Area3D" unique_id=399711490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27072906, -0.122558594, -0.16722107)
-shape = SubResource("BoxShape3D_4wlpe")
-
 [node name="Label" type="Label" parent="." unique_id=1113606484 node_paths=PackedStringArray("body")]
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("5_ojk2s")
 body = NodePath("../Minivan")
 
-[connection signal="body_entered" from="Minivan/cop/Area3D" to="Minivan/cop" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="cop/Area3D" to="cop" method="_on_area_3d_body_entered"]

@@ -1,26 +1,30 @@
 class_name TrackBuilder_Impl
 extends Node
 
-var highway_scene : PackedScene = preload("res://Main/highway/highway.tscn")
+var highway_scene : PackedScene = preload("res://Lexie/city_tiles/roads/6_lane_highway.tscn")
 
-var number_highway_sections : int = 5
-var horizon_behind : int = 3 + number_highway_sections
+
+var horizon_ahead : int = 5
+var horizon_behind : int = 5
 
 var all_highway_sections : Array[TrackComponent] = []
 var available_highway_sections : Array[TrackComponent] = []
 
 var active_track : Array[TrackComponent] = []
+var min_track_id : int = 0 # smallest active index, if it == to the next, then nothing is loaded
+var next_track_id : int = 0 # one more than the largest
 
+
+
+func build_initial_highway():
+	for i in range(1 + horizon_ahead + horizon_behind):
+		_append_component(_get_highway())
+	
 
 func build_debug():
 	for i in range(5):
 		_append_component(_get_highway())
 
-
-func _ready():
-	for i in range(0, number_highway_sections):
-		_make_new_highway()
-	
 
 func _make_new_highway():
 	var hw = highway_scene.instantiate()
@@ -41,6 +45,10 @@ func _get_highway():
 		
 
 func _append_component(section : TrackComponent):
+	var id = next_track_id
+	next_track_id += 1
+	min_track_id = min(min_track_id, id)
+	section.load_section(id)
 
 	if active_track.is_empty():
 		get_tree().current_scene.add_child(section)
@@ -51,33 +59,59 @@ func _append_component(section : TrackComponent):
 		get_tree().current_scene.add_child(section)
 		section.global_position = active_track.back().end() - section.start()
 		
+		print("placing connected")
 		print((active_track.back().end()))
 		active_track.append(section)
 		
+
+
+func _pop_component():
+	if active_track.is_empty():
+		return
+		
+	var section = active_track.pop_front()
+	print("removing ", section.track_id)
 	
+	# increment to point at the next one
+	# will do the empty behavior correctly
+	min_track_id += 1
+	
+	section.unload_section()
+	section.global_position = Vector3.ZERO
+	
+	if section.get_parent():
+		section.get_parent().remove_child(section)
+	
+	# reuse it if its highway
+	if all_highway_sections.has(section):
+		available_highway_sections.push_back(section)
 
-func cull_track():
-	# remove all but the last component
-	for i in range(0, active_track.size() - horizon_behind):
-		print("removing", i)
-		var section = active_track.pop_front()
-		
-		section.global_position = Vector3.ZERO
-		
-		if section.get_parent():
-			section.get_parent().remove_child(section)
-		
-		# reuse it if its highway
-		if all_highway_sections.has(section):
-			available_highway_sections.push_back(section)
-
-		else:
-			section.queue_free()
+	else:
+		section.queue_free()
 			
 
-func extend_track():
-	_append_component(_get_highway())
-	cull_track()
+#func extend_track():
+	#_append_component(_get_highway())
+	#cull_track()
 	
+
+func exited_section(id):
+	# cull to the back horizon
+	while not active_track.is_empty() and active_track.front().track_id < id - horizon_behind:
+		active_track.pop_front()
+		min_track_id = active_track[0].track_id
+
+
+func player_entered(id):
+	# when the player enters a section, 
 	
+	# add sections untill there are enough infront
+	while not (next_track_id > id + horizon_ahead):
+		# todo choose randomly
+		_append_component(_get_highway())
 		
+	# remove sections untill there aren't too many behind
+	while min_track_id < id - horizon_behind:
+		_pop_component()
+
+	print("player in ", id, " active range (", min_track_id, ", ", next_track_id - 1, ")")

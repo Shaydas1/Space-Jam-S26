@@ -22,7 +22,10 @@ uv1_scale = Vector3(6, 2, 2)
 material = SubResource("StandardMaterial3D_iqeqa")
 size = Vector3(35.593, 80, 200)
 
-[node name="Building1x1_200m" type="Node3D" unique_id=1645341968]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
+size = Vector3(435.593, 90, 200)
+
+[node name="Building1x2_200m" type="StaticBody3D" unique_id=1215072351]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=2131850801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.796, 0, 0)
@@ -38,3 +41,7 @@ mesh = SubResource("BoxMesh_avdos")
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D" unique_id=1650974720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.797, 40, 0)
 mesh = SubResource("BoxMesh_qjsqp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=439411924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+shape = SubResource("BoxShape3D_vqkdg")

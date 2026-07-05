@@ -116,6 +116,6 @@ func _physics_process(delta: float) -> void:
 		elif forward_speed > min_forward_speed * 0.8:
 			forward_speed = clamp(lerp(forward_speed, min_forward_speed * 0.8, 5 * delta), min_forward_speed * 0.8, INF)
 	
-	#print(forward_speed, swerve_speed)
+	#print(forward_speed, " ", -transform.basis.z)
 
 	decay_swerve_speed(delta)
