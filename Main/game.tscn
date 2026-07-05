@@ -32,7 +32,11 @@
 [ext_resource type="Texture2D" uid="uid://cwsud0r3qs4tu" path="res://Main/assets/portrait_holder/portrait_bg.webp" id="31_qs41t"]
 [ext_resource type="AudioStream" uid="uid://dmdnhb6t1jcro" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="32_hb0ms"]
 [ext_resource type="Texture2D" uid="uid://de8y0k675yoy7" path="res://Main/assets/portrait_holder/portrait_holder.webp" id="32_qs41t"]
+[ext_resource type="Script" uid="uid://ddpju6kyv1wtu" path="res://Main/acceleromotor.gd" id="32_x6ew8"]
 [ext_resource type="AudioStream" uid="uid://dkcg4re4c0000" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="33_hb0ms"]
+[ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="34_i3kjt"]
+[ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="35_x6ew8"]
+[ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
 panorama = ExtResource("3_scbye")
@@ -274,6 +278,26 @@ visible = false
 position = Vector2(1800, 720)
 scale = Vector2(-0.3, -0.3)
 sprite_frames = SubResource("SpriteFrames_2tkkp")
+
+[node name="FancySpeedometer" type="Node2D" parent="CanvasLayer" unique_id=1178464461 node_paths=PackedStringArray("body")]
+script = ExtResource("32_x6ew8")
+body = NodePath("../../Minivan")
+
+[node name="EmptyBar" type="Sprite2D" parent="CanvasLayer/FancySpeedometer" unique_id=1248069411]
+position = Vector2(173, 623)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("34_i3kjt")
+
+[node name="Mask" type="Sprite2D" parent="CanvasLayer/FancySpeedometer/EmptyBar" unique_id=303246483]
+clip_children = 1
+position = Vector2(3.0517578e-05, 0)
+texture = ExtResource("35_x6ew8")
+
+[node name="BarColour" type="Sprite2D" parent="CanvasLayer/FancySpeedometer/EmptyBar/Mask" unique_id=2006059479]
+modulate = Color(1, 0.5294118, 0, 1)
+position = Vector2(-864.99994, 124.99994)
+scale = Vector2(19.35, 4.5)
+texture = ExtResource("36_bjffo")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
 stream = ExtResource("32_hb0ms")
