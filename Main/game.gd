@@ -3,6 +3,8 @@ extends Node3D
 @export var minivan : Minivan
 
 func _ready():
+	Spawner.reset()
+	TrackBuilder.reset()
 	TrackBuilder.build_initial_highway()
 	var start_loc = TrackBuilder.active_track[TrackBuilder.horizon_behind].start()
 	minivan.global_position.x = start_loc.x

@@ -21,6 +21,12 @@ var cars_per_wave = 6
 var spawn_adjacent_seperation = (-9.486 - -15.6)
 var first_car_offset = -15.6 
 
+func reset():
+	all_obstacles = []
+	available_obstacles = []
+	active_obstacles = []
+	furthest_populated_hw = -1
+	
 func you_have_populated(ind):
 	furthest_populated_hw = max(furthest_populated_hw, ind)
 
