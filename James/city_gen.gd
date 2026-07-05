@@ -1,127 +1,4 @@
-class_name CityLayout
-extends Resource
-
-@export var size : Vector2i
-
-# 2d flattened data
-@export var horizontal_streets : Array[bool]
-@export var vertical_streets : Array[bool]
-@export var junctions : Array[bool]
-@export var buildings : Array[int]
-
-# building info
-@export var num_buildings : int
-@export var building_types : Array[int]
-
-
-func get_horizontal_street(x : int, y : int) -> bool:
-	if (x < 0) or (x >= size.x) or (y < 0) or (y >= size.y + 1):
-		return false
-	
-	return horizontal_streets[x + y * size.x]
-	
-	
-func get_vertical_street(x : int, y : int) -> bool:
-	if (x < 0) or (x >= size.x + 1) or (y < 0) or (y >= size.y):
-		return false
-	
-	return vertical_streets[y + x * size.y]
-
-
-
-func get_junction(x : int, y : int) -> bool:
-	if (x < 0) or (x >= size.x + 1) or (y < 0) or (y >= size.y + 1):
-		return false
-
-	return junctions[x + y * (size.x  +1)]
-
-
-func get_building_at(x : int, y : int) -> int:
-	if (x < 0) or (x >= size.x) or (y < 0) or (y >= size.y):
-		return false
-
-	return buildings[x + y * size.x]
-
-
-func get_building_type(id : int) -> int:
-	if (id < 0) or (id >= building_types.size()):
-		return false
-
-	return building_types[id]
-
-
-# BELOW IS THE CODE FOR GENERATING CITY BUILDINGS AND ROADS.
-# Came from a different file so needs some conversion
-
-func test() -> void:
-	#test_gen_city()
-	var data = gen_city(5, 7)
-	var horz_roads = data["horz_roads"]
-	var vert_roads = data["vert_roads"]
-	var intersections = data["intersections"]
-	var data_buildings = data["buildings"]
-	data_to_layout(horz_roads, vert_roads, intersections, data_buildings)
-	
-	var out_buildings = buildings.duplicate()
-	out_buildings.reverse()
-	for building_row in out_buildings:
-		print(building_row)
-	
-
-# First, the conversion:
-func data_to_layout(horz_roads, vert_roads, intersections, data_buildings):
-	# roads horz bool -> bool
-	# roads vert bool -> bool
-	# intersections int -> bool
-	# buildings weird
-	
-	var flat_horz_roads : Array[bool]
-	# 1. Horz roads: 1st row (starting at bottom), then 2nd, 3rd... Flattened.
-	for horz_road_row in horz_roads:
-		for horz_road in horz_road_row:
-			flat_horz_roads.append(horz_road)
-	
-	# 2. Vert streets is the weird conversion here.
-	var flat_vert_roads : Array[bool]
-	if (vert_roads.size() > 0):
-		for j in range(0, vert_roads[0].size()):
-			for i in range(0, vert_roads.size()):
-				flat_vert_roads.append(vert_roads[i][j])
-	else:
-		flat_vert_roads = []
-	
-	# 3. intersections
-	var flattened_intersections: Array[bool]
-	for intersection_row in intersections:
-		for intersection in intersection_row:
-			flattened_intersections.append(intersection > 0)
-	
-	# 4. buildings
-	var building_indexes = {}
-	var building_id_to_type = []
-	var index = 0
-	var buildings_by_id = []
-	for buildings_row in data_buildings:
-		for building in buildings_row:
-			if building[0] == "S":
-				buildings_by_id.append(index)
-				building_id_to_type.append("S")
-				index += 1
-			elif building in building_indexes:
-				buildings_by_id.append(building_indexes[building])
-			else:
-				building_indexes[building] = index
-				buildings_by_id.append(index)
-				building_id_to_type.append(building[0])
-				index += 1
-			
-	horizontal_streets = flat_horz_roads.duplicate()
-	vertical_streets = flat_vert_roads.duplicate()
-	junctions = flattened_intersections.duplicate()
-	buildings = buildings_by_id.duplicate()
-	num_buildings = index
-	building_types = building_id_to_type.duplicate()
-
+extends Node
 
 # NOTE: Currently, it's technically possible for a dead end to be generated
 # on the outside edge if a 2x2 is created adjacent to the edge.
@@ -135,6 +12,12 @@ func data_to_layout(horz_roads, vert_roads, intersections, data_buildings):
 # STILL TODO:
 # - Fix 2x2's
 # - Add random exits
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#test_gen_city()
+	gen_city(5, 7)
 	
 	
 func test_gen_city():
@@ -484,7 +367,6 @@ func gen_city(n: int, m: int, test_seq = null):
 			print(building_row)
 		print(index_types)
 		print()
-	return {"horz_roads": horizontal_roads, "vert_roads": vertical_roads, "intersections": intersections.duplicate(), "buildings": buildings.duplicate()}
 
 func remove_road(i, j, h_or_v, matched_buildings, index_type, buildings, index_types, intersections, road_array, ignore_deg_req = false):
 	# First, check intersection degree.
