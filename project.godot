@@ -20,6 +20,7 @@ config/icon="res://movement/icon.svg"
 TrackBuilder="*uid://dvgjowomow5iw"
 SceneManager="*uid://cwd5q0a3tgnyo"
 Spawner="*uid://oa32hrks3irj"
+ScoreCounter="*uid://my1kdh8yp2lt"
 
 [display]
 

@@ -4,5 +4,5 @@ extends Label
 @export var minivan : Minivan
 
 func _process(delta: float) -> void:
-	text = "Fine:\n" + "$" + str(int(minivan.score)) 
+	text = "Fine:\n" + "$" + str(int(ScoreCounter.score)) 
 	

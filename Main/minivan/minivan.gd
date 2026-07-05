@@ -46,8 +46,6 @@ var is_dead = false
 
 @export var speedlines : ColorRect
 
-@export var score : float
-
 @export var global_speedup_rate: float = 1.005
 @export var speed_cap : float = 400
 
@@ -95,6 +93,7 @@ func _ready() -> void:
 	current_base_speed = base_speed
 	
 	time_alive = 0
+	ScoreCounter.score = 0
 
 func decay_swerve_speed(_delta):
 	swerve_speed = lerp(swerve_speed, 0.0, swerve_decay)
@@ -119,7 +118,7 @@ func _process(delta: float) -> void:
 	speedlines.material.set_shader_parameter("line_density", density)
 
 	if not is_dead:
-		score += 5 * pow(forward_speed/ base_speed, 2) * delta
+		ScoreCounter.score += 5 * pow(forward_speed/ base_speed, 2) * delta
 
 func _update_angle(new_angle):
 	rotate_y(-angle)
