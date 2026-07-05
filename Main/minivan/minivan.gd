@@ -35,6 +35,8 @@ var angle : float = 0.0
 
 func hit_driver():
 	forward_speed = min(forward_speed * 0.8, forward_speed)
+	if not get_node("Bonk").playing:
+			get_node("Bonk").play()
 
 func hit_cop_glance():
 	pass
