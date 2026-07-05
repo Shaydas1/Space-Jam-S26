@@ -250,13 +250,13 @@ scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_rxntd")
 frame_progress = 0.5604991
 
-[node name="DriverSpeedDrop" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1783063786]
+[node name="DriverSpeedLow" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1783063786]
 visible = false
 position = Vector2(1680, 513.3334)
 scale = Vector2(0.7, -0.7)
 sprite_frames = SubResource("SpriteFrames_qjjsu")
 
-[node name="DriverSpeedLow" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1844958232]
+[node name="DriverSpeedDrop" type="AnimatedSprite2D" parent="CanvasLayer/Portraits" unique_id=1844958232]
 visible = false
 position = Vector2(1646.6669, 513.3334)
 scale = Vector2(0.7, -0.7)
