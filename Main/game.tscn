@@ -40,11 +40,13 @@
 [ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="35_x6ew8"]
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
+[ext_resource type="FontFile" uid="uid://dft0xc62lr8p8" path="res://Main/assets/Fonts/ABCStefanTrial-Simple.otf" id="36_mxuvg"]
 [ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
 [ext_resource type="Texture2D" uid="uid://bcw3x0l6ew7eu" path="res://Main/assets/Speedometer_box.webp" id="40_irwb1"]
 [ext_resource type="AudioStream" uid="uid://bgbknghs7pbi5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="41_d5rxt"]
 [ext_resource type="Texture2D" uid="uid://f1jqd2epr6tl" path="res://Main/assets/Fine_box.webp" id="41_p3ukk"]
 [ext_resource type="AudioStream" uid="uid://bl6j6lx3l77q0" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="42_d5rxt"]
+[ext_resource type="FontFile" uid="uid://bubf3l8k6p87v" path="res://Main/assets/Fonts/ABCMaxiSharpMonoTrial-Regular.otf" id="42_tdxld"]
 [ext_resource type="Texture2D" uid="uid://bhowa1qik6k40" path="res://Main/assets/acceleration_bar/border.webp" id="44_1nmj5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
@@ -348,6 +350,7 @@ offset_top = -713.33325
 offset_right = 863.3334
 offset_bottom = -483.3333
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("36_mxuvg")
 theme_override_font_sizes/font_size = 80
 
 [node name="FancySpeedometer" type="Node2D" parent="CanvasLayer" unique_id=1178464461 node_paths=PackedStringArray("body")]
@@ -380,6 +383,7 @@ offset_left = -255.0
 offset_top = -285.04675
 offset_right = 265.0
 offset_bottom = 233.64465
+theme_override_fonts/font = ExtResource("42_tdxld")
 theme_override_font_sizes/font_size = 200
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -392,11 +396,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("41_p3ukk")
 
 [node name="Label" type="Label" parent="CanvasLayer/ScoreBox" unique_id=1381292064 node_paths=PackedStringArray("minivan")]
-offset_left = -219.99992
-offset_top = -260.0
+offset_left = -189.99992
+offset_top = -220.0
 offset_right = 243.33333
 offset_bottom = 210.0
-theme_override_font_sizes/font_size = 150
+theme_override_colors/font_color = Color(4.813075e-08, 0.7477682, 0.32520118, 1)
+theme_override_fonts/font = ExtResource("42_tdxld")
+theme_override_font_sizes/font_size = 140
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("37_dh0gb")
