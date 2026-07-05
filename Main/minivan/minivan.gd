@@ -90,16 +90,28 @@ func _physics_process(delta: float) -> void:
 	
 	if inp > 0:
 		forward_speed = lerp(forward_speed, max_forward_speed, accel_rate * delta)
+		# Start playing engine noise
+		if not get_node("Engine").playing:
+			get_node("Engine").play()
 	
 	elif inp < 0:
 		if forward_speed > min_forward_speed:
 			forward_speed = lerp(forward_speed, min_forward_speed, break_rate * delta)
-
+		# Start playing break noise
+		if not get_node("Brake").playing:
+			get_node("Brake").play()
+		
 	elif forward_speed > base_speed:
 		forward_speed = lerp(forward_speed, base_speed, slow_down_rate * delta)
+		# Stop playing engine and break noises
+		get_node("Engine").stop()
+		get_node("Brake").stop()
 
 	elif forward_speed < base_speed:
 		forward_speed = lerp(forward_speed, base_speed, speed_up_rate * delta)
+		# Stop playing engine and break noises
+		get_node("Engine").stop()
+		get_node("Brake").stop()
 
 	velocity = forward_speed * -transform.basis.z + swerve_speed * transform.basis.x
 
