@@ -42,6 +42,8 @@ var is_dead = false
 @export var die_timer : Timer
 @export var explosion : AnimatedSprite3D
 
+@export var speedlines : ColorRect
+
 func animation_finished():
 	explosion.visible = false
 
@@ -89,6 +91,18 @@ func decay_swerve_speed(_delta):
 
 func _process(_delta: float) -> void:
 	update_texture()
+	
+	var density = 1
+	
+	if is_dead or forward_speed < (base_speed  + max_forward_speed) / 2:
+		density = 0
+	else:
+		density = lerp(0.0, 1.0, forward_speed / max_forward_speed)
+		
+	
+	speedlines.material.set_shader_parameter("line_density", density)
+
+		
 
 func _update_angle(new_angle):
 	rotate_y(-angle)
