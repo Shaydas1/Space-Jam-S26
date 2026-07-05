@@ -11,7 +11,9 @@ extends CharacterBody3D
 @export var right_direction : Vector3
 
 @export var max_forward_speed : float
+var current_max_forward_speed : float
 @export var base_speed : float
+var current_base_speed : float
 @export var min_forward_speed : float
 
 @export var accel_rate : float
@@ -43,6 +45,13 @@ var is_dead = false
 @export var explosion : AnimatedSprite3D
 
 @export var speedlines : ColorRect
+
+@export var score : float
+
+@export var global_speedup_rate: float = 1.005
+@export var speed_cap : float = 400
+
+var time_alive : float 
 
 func animation_finished():
 	explosion.visible = false
@@ -81,6 +90,11 @@ func _ready() -> void:
 	die_timer.timeout.connect(die_timer_timeout)
 	explosion.visible = false
 	explosion.animation_finished.connect(animation_finished)
+	
+	current_max_forward_speed = max_forward_speed
+	current_base_speed = base_speed
+	
+	time_alive = 0
 
 func decay_swerve_speed(_delta):
 	swerve_speed = lerp(swerve_speed, 0.0, swerve_decay)
@@ -89,7 +103,9 @@ func decay_swerve_speed(_delta):
 		swerve_speed = 0
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	
+	
 	update_texture()
 	
 	var density = 1
@@ -102,7 +118,8 @@ func _process(_delta: float) -> void:
 	
 	speedlines.material.set_shader_parameter("line_density", density)
 
-		
+	if not is_dead:
+		score += 5 * pow(forward_speed/ base_speed, 2) * delta
 
 func _update_angle(new_angle):
 	rotate_y(-angle)
@@ -111,6 +128,15 @@ func _update_angle(new_angle):
 
 
 func _physics_process(delta: float) -> void:
+	
+	time_alive += delta
+	
+	current_base_speed = min(
+		speed_cap, base_speed * pow(global_speedup_rate, time_alive))
+	
+	current_max_forward_speed = min(
+		speed_cap * 2, max_forward_speed * pow(global_speedup_rate, time_alive))
+		
 	if(is_dead): return
 
 	var turn_input = Input.get_axis("turn_left", "turn_right")
@@ -132,7 +158,7 @@ func _physics_process(delta: float) -> void:
 	var inp = Input.get_axis("break", "forward")
 	
 	if inp > 0:
-		forward_speed = lerp(forward_speed, max_forward_speed, accel_rate * delta)
+		forward_speed = lerp(forward_speed, current_max_forward_speed, accel_rate * delta)
 		# Start playing engine noise
 		if not get_node("Engine").playing:
 			get_node("Engine").play()
@@ -146,15 +172,15 @@ func _physics_process(delta: float) -> void:
 			get_node("Brake").play()
 		slowing_down.emit()
 		
-	elif forward_speed > base_speed:
-		forward_speed = lerp(forward_speed, base_speed, slow_down_rate * delta)
+	elif forward_speed > current_base_speed:
+		forward_speed = lerp(forward_speed, current_base_speed, slow_down_rate * delta)
 		# Stop playing engine and break noises
 		get_node("Engine").stop()
 		get_node("Brake").stop()
 		slowing_down.emit()
 
-	elif forward_speed < base_speed:
-		forward_speed = lerp(forward_speed, base_speed, speed_up_rate * delta)
+	elif forward_speed < current_base_speed:
+		forward_speed = lerp(forward_speed, current_base_speed, speed_up_rate * delta)
 		# Stop playing engine and break noises
 		get_node("Engine").stop()
 		get_node("Brake").stop()
