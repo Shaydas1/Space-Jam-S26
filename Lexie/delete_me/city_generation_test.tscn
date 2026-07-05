@@ -14,7 +14,7 @@ layout = ExtResource("3_kytuy")
 [node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("4_x06uo")]
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("4_gsxv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460, 0, 200)
 max_forward_speed = 0.0
 base_speed = 0.0
 min_forward_speed = 0.0

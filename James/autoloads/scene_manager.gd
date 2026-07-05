@@ -29,4 +29,5 @@ func swap_screen(screen : Screen):
 
 
 func _ready():
-	swap_screen(current_screen)
+	# swap_screen(current_screen)
+	pass
