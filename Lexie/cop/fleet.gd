@@ -2,10 +2,11 @@ class_name Fleet
 extends CharacterBody3D
 
 @export var forward_speed : float = 110
-@export var max_dist_away : float = 200
+@export var max_dist_away : float = 50
 
 
-@export var global_speedup_rate: float = 1.0000005
+
+@export var global_speedup_rate: float = 1.003
 @export var speed_cap : float = 400
 
 
@@ -37,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 	var dist_away = (global_position.z - minivan.global_position.z)
 	
-	var vol_scale = clampf(dist_away / max_dist_away, 0, 1)
+	var vol_scale = pow(clampf(dist_away / max_dist_away, 0, 1), 5)
 	
 	siren.volume_db = lerp(vol_max, vol_min, vol_scale)
 	
