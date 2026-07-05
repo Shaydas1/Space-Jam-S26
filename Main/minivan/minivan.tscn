@@ -6,12 +6,44 @@
 [ext_resource type="AudioStream" uid="uid://defpllmqcdnd6" path="res://Main/assets/Sounds/Car_loop_test.mp3" id="5_io3sn"]
 [ext_resource type="AudioStream" uid="uid://djreiujy0fnkr" path="res://Main/assets/Sounds/536769__egomassive__tire.ogg" id="6_d3it3"]
 [ext_resource type="AudioStream" uid="uid://4611iwauwgjq" path="res://Main/assets/Sounds/682083__henkonen__cat-yowl-distant.wav" id="7_1atqa"]
+[ext_resource type="Texture2D" uid="uid://by1o0pkgnma4d" path="res://Main/minivan/fire_1.png" id="8_hxam8"]
 [ext_resource type="AudioStream" uid="uid://7nf338gx80hr" path="res://Main/assets/Sounds/458572__facklere__bonk.wav" id="8_xuiwb"]
+[ext_resource type="Texture2D" uid="uid://b2yrm5rogai16" path="res://Main/minivan/fire_2.png" id="9_a6yu1"]
+[ext_resource type="Texture2D" uid="uid://c0fae3k4j5e45" path="res://Main/minivan/fire_3.png" id="10_ktrml"]
+[ext_resource type="Texture2D" uid="uid://ecthjoctymf3" path="res://Main/minivan/fire_4.png" id="11_wyhfv"]
+[ext_resource type="Texture2D" uid="uid://bg1re7u75iypl" path="res://Main/minivan/fire_5.png" id="12_lp1q1"]
+[ext_resource type="Texture2D" uid="uid://dvq4lo213koaf" path="res://Main/minivan/fire_6.png" id="13_ihnxn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vqkdg"]
 radius = 1.8158417
 
-[node name="Minivan" type="CharacterBody3D" unique_id=1745930246 node_paths=PackedStringArray("sprite") groups=["Player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8reca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_hxam8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a6yu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ktrml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wyhfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lp1q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ihnxn")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Minivan" type="CharacterBody3D" unique_id=1745930246 node_paths=PackedStringArray("sprite", "die_timer", "explosion") groups=["Player"]]
 script = ExtResource("1_rw43d")
 tex_center = ExtResource("2_bexbh")
 tex_left = ExtResource("3_io3sn")
@@ -25,6 +57,8 @@ break_rate = 5.0
 slow_down_rate = 3.0
 max_swerve_speed = 40.0
 swerve_decay = 0.5
+die_timer = NodePath("Timer")
+explosion = NodePath("explosion")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=811943943]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -49,3 +83,11 @@ volume_db = -15.0
 [node name="Bonk" type="AudioStreamPlayer" parent="." unique_id=135727985]
 stream = ExtResource("8_xuiwb")
 volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1213375037]
+wait_time = 3.0
+
+[node name="explosion" type="AnimatedSprite3D" parent="." unique_id=25992872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6284502, 0)
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_8reca")

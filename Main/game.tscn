@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Main/game.gd" id="1_bc5lc"]
 [ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://Main/background/world_environment.tscn" id="2_bjffo"]
 [ext_resource type="Texture2D" uid="uid://w0rhnwsm6mfx" path="res://Main/assets/cat/cat_1.webp" id="4_058bf"]
+[ext_resource type="PackedScene" uid="uid://dmplxfsd055g5" path="res://Lexie/cop/fleet.tscn" id="4_gu57y"]
 [ext_resource type="Script" uid="uid://c042f52trfjem" path="res://Main/portraits.gd" id="4_ryfap"]
 [ext_resource type="Texture2D" uid="uid://mug2r8p5k76t" path="res://Main/assets/cat/cat_2.webp" id="5_ryfap"]
 [ext_resource type="Texture2D" uid="uid://c1xa7gjmblnl0" path="res://Main/assets/portrait_holder/portrait_shadow.webp" id="6_7a8iq"]
@@ -187,13 +188,20 @@ minivan = NodePath("Minivan")
 
 [node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("2_bjffo")]
 
+[node name="Fleet" parent="." unique_id=683029508 node_paths=PackedStringArray("minivan", "siren") instance=ExtResource("4_gu57y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 30)
+max_dist_away = 100.0
+minivan = NodePath("../Minivan")
+vol_max = 5.0
+vol_min = -5.0
+siren = NodePath("../AudioStreamPlayer")
+
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 right_direction = Vector3(1, 0, 0)
-min_forward_speed = 80.0
 
 [node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=2141817629]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, -0.042559862, 6.293509, 12.432451)
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, -0.042559862, 5.8617544, 26.870218)
 fov = 90.0
 size = 1.935
 
