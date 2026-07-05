@@ -11,10 +11,6 @@ size = Vector3(2.338028, 1.2451172, 2.4203186)
 
 [node name="obstacle_car" type="CharacterBody3D" unique_id=1256894025]
 script = ExtResource("1_1s2qv")
-forward_velocity = null
-time_to_die = null
-fling_speed = null
-fling_spin = null
 
 [node name="spin_select" type="Node3D" parent="." unique_id=74096856 node_paths=PackedStringArray("left", "right", "front", "back")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
@@ -48,4 +44,5 @@ texture = ExtResource("5_51g03")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27072906, -0.122558594, -0.16722107)
 shape = SubResource("BoxShape3D_4wlpe")
 
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

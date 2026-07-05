@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bycohv5ewplrp"]
+
+[ext_resource type="PackedScene" uid="uid://dp7idto3wdx8t" path="res://Lexie/obstacle_car.tscn" id="1_tyra8"]
+[ext_resource type="PackedScene" uid="uid://dl5c57r75mm3v" path="res://Lexie/city_tiles/roads/6_lane_highway.tscn" id="2_yyqmw"]
+
+[node name="SampleSpawn" type="Node3D" unique_id=1502393608]
+
+[node name="obstacle_car" parent="." unique_id=1256894025 instance=ExtResource("1_tyra8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3879404, 0)
+
+[node name="6_lane_highway" parent="." unique_id=353461215 instance=ExtResource("2_yyqmw")]

@@ -18,6 +18,10 @@ var player_track : int = -1
 
 signal player_entered_track(id : int)
 
+
+func get_track(id):
+	return active_track.get(id - min_track_id)
+
 func build_initial_highway():
 	for i in range(1 + horizon_ahead + horizon_behind):
 		_append_component(_get_highway())
@@ -116,5 +120,7 @@ func player_entered(id):
 	# remove sections untill there aren't too many behind
 	while min_track_id < player_track - horizon_behind:
 		_pop_component()
+		
+	Spawner.player_in(player_track)
 
 	#print("player in ", player_track, " active range (", min_track_id, ", ", next_track_id - 1, ")")
