@@ -181,14 +181,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="game" type="Node3D" unique_id=607687153]
+[node name="game" type="Node3D" unique_id=607687153 node_paths=PackedStringArray("minivan")]
 script = ExtResource("1_bc5lc")
+minivan = NodePath("Minivan")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
 environment = SubResource("Environment_vqkdg")
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("1_aha5t")]
-forward_direction = Vector3(0, 0, -1)
 right_direction = Vector3(1, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=2141817629]
