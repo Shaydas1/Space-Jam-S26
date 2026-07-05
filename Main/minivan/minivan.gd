@@ -32,6 +32,13 @@ var accel_falloff_rate : float
 var angle : float = 0.0
 @export var angle_correction_decay : float = 5.0
 
+
+func hit_driver():
+	forward_speed *= 0.8
+
+func hit_cop_glance():
+	pass
+
 func update_texture():
 	if abs(swerve_speed) < max_swerve_speed/2:
 		sprite.texture = tex_center
@@ -55,21 +62,24 @@ func decay_swerve_speed(delta):
 func _process(delta: float) -> void:
 	update_texture()
 
+func _update_angle(new_angle):
+	rotate_y(-angle)
+	angle = new_angle
+	rotate_y(angle)
+
 
 func _physics_process(delta: float) -> void:
 
 	var turn_input = Input.get_axis("turn_left", "turn_right")
 	
-	rotate_y(-angle)
 	
 	if turn_input != 0:
-		angle += deg_to_rad(-turn_rate * delta * turn_input)
+		_update_angle(angle + deg_to_rad(-turn_rate * delta * turn_input))
 		
 	elif abs(angle) > deg_to_rad(0.5):
-		angle = lerp(angle, 0.0, angle_correction_decay * delta)
+		_update_angle(lerp(angle, 0.0, angle_correction_decay * delta))
 	else:
-		angle = 0
-	rotate_y(angle)
+		_update_angle(0)
 
 	var swerve_input = Input.get_axis("left", "right")
 
@@ -82,7 +92,8 @@ func _physics_process(delta: float) -> void:
 		forward_speed = lerp(forward_speed, max_forward_speed, accel_rate * delta)
 	
 	elif inp < 0:
-		forward_speed = lerp(forward_speed, min_forward_speed, break_rate * delta)
+		if forward_speed > min_forward_speed:
+			forward_speed = lerp(forward_speed, min_forward_speed, break_rate * delta)
 
 	elif forward_speed > base_speed:
 		forward_speed = lerp(forward_speed, base_speed, slow_down_rate * delta)
@@ -92,12 +103,19 @@ func _physics_process(delta: float) -> void:
 
 	velocity = forward_speed * -transform.basis.z + swerve_speed * transform.basis.x
 
+
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		#print("I collided with ", collision.get_collider().name)
+
+		var collision_angle = acos(transform.basis.z.dot(collision.get_normal()))
+		
+		if collision_angle < deg_to_rad(30):
+			SceneManager.swap_screen(SceneManager.Screen.End)
+		elif forward_speed > min_forward_speed * 0.8:
+			forward_speed = clamp(lerp(forward_speed, min_forward_speed * 0.8, 5 * delta), min_forward_speed * 0.8, INF)
 	
-	#print(forward_speed, swerve_speed)
+	#print(forward_speed, " ", -transform.basis.z)
 
 	decay_swerve_speed(delta)

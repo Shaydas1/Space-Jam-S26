@@ -1,15 +1,67 @@
 [gd_scene format=3 uid="uid://rpmhbbtt32f6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji3bk"]
+[ext_resource type="Texture2D" uid="uid://cs4d6su6fwgu3" path="res://Lexie/Untitled_Artwork_130.png" id="1_sb5qo"]
+[ext_resource type="Texture2D" uid="uid://cpwpi1dmf4tmt" path="res://Lexie/Untitled_Artwork.png" id="2_b0gcq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23be"]
 shading_mode = 0
 albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+albedo_texture = ExtResource("1_sb5qo")
+uv1_scale = Vector3(6, 2, 2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vqkdg"]
-material = SubResource("StandardMaterial3D_ji3bk")
-size = Vector3(180, 300, 180)
+[sub_resource type="BoxMesh" id="BoxMesh_2dxhr"]
+material = SubResource("StandardMaterial3D_v23be")
+size = Vector3(200, 90, 200)
 
-[node name="Building2x2_200m" type="Node3D" unique_id=1645341968]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqeqa"]
+shading_mode = 0
+albedo_texture = ExtResource("2_b0gcq")
+uv1_scale = Vector3(6, 2, 2)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=877889490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150, 0)
-mesh = SubResource("BoxMesh_vqkdg")
+[sub_resource type="BoxMesh" id="BoxMesh_7lehy"]
+material = SubResource("StandardMaterial3D_iqeqa")
+size = Vector3(35.593, 80, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
+size = Vector3(435.593, 90, 435.593)
+
+[node name="Building2x2_200m" type="StaticBody3D" unique_id=1578616373]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=949595127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.796, 0, -117.796)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=1702877468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+mesh = SubResource("BoxMesh_2dxhr")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D" unique_id=458851197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.593, 45, 0)
+mesh = SubResource("BoxMesh_2dxhr")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D" unique_id=2124295504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.593, 45, 235.593)
+mesh = SubResource("BoxMesh_2dxhr")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D" unique_id=431518820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 235.593)
+mesh = SubResource("BoxMesh_2dxhr")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D" unique_id=1341224853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.797, 40, 0)
+mesh = SubResource("BoxMesh_7lehy")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D" unique_id=1525353073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.797, 40, 235.593)
+mesh = SubResource("BoxMesh_7lehy")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Node3D" unique_id=481696418]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 40, 117.797)
+mesh = SubResource("BoxMesh_7lehy")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Node3D" unique_id=713674110]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 235.594, 40, 117.797)
+mesh = SubResource("BoxMesh_7lehy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1609753105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+shape = SubResource("BoxShape3D_vqkdg")

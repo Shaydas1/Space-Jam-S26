@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="CityLayout" format=3 uid="uid://cxhu3wvgbktg8"]
+[gd_resource type="Resource" script_class="CityLayout" format=3 uid="uid://b15ppjtkgdjw5"]
 
-[ext_resource type="Script" uid="uid://boxchn231xr7r" path="res://Main/cities/city_layout.gd" id="1_fcxdm"]
+[ext_resource type="Script" uid="uid://boxchn231xr7r" path="res://Main/cities/city_layout.gd" id="1_c1lv6"]
 
 [resource]
-script = ExtResource("1_fcxdm")
+script = ExtResource("1_c1lv6")
 size = Vector2i(3, 2)
 horizontal_streets = Array[bool]([true, true, true, true, true, false, true, true, true])
 vertical_streets = Array[bool]([true, true, false, false, true, true, true, true])
 junctions = Array[bool]([true, true, true, true, true, true, true, true, true, true, true, true])
-buildings = Array[int]([0, 0, 1, 2, 2, 1])
-num_buildings = 3
-building_types = Array[int]([1, 1, 1])
+buildings = Array[int]([0, 0, 1, 0, 1, 1])
+num_buildings = 2
+building_types = Array[int]([3, 3])
 metadata/_custom_type_script = "uid://boxchn231xr7r"
