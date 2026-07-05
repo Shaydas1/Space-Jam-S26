@@ -60,7 +60,7 @@ func die_timer_timeout():
 	SceneManager.swap_screen(SceneManager.Screen.End)
 
 func hit_driver():
-	forward_speed = min(forward_speed * 0.6, base_speed * 0.4)
+	forward_speed = min(forward_speed * 0.6, base_speed * 0.1)
 	if not get_node("Bonk").playing:
 			get_node("Bonk").play()
 

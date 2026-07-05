@@ -212,8 +212,8 @@ minivan = NodePath("Minivan")
 
 [node name="Fleet" parent="." unique_id=683029508 node_paths=PackedStringArray("minivan", "siren") instance=ExtResource("4_gu57y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 30)
-forward_speed = 110.0
-max_dist_away = 50.0
+forward_speed = 80.0
+max_dist_away = 100.0
 minivan = NodePath("../Minivan")
 vol_max = 5.0
 vol_min = -5.0

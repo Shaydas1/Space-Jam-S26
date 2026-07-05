@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 
 
-@export var global_speedup_rate: float = 1.003
+@export var global_speedup_rate: float = 1.005
 @export var speed_cap : float = 400
 
 
@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	currnet_forward_speed = min(
 		speed_cap, forward_speed * pow(global_speedup_rate, time_alive))
 	
+	print(currnet_forward_speed)
 	var dist_away = (global_position.z - minivan.global_position.z)
 	
 	var vol_scale = pow(clampf(dist_away / max_dist_away, 0, 1), 5)
