@@ -42,6 +42,7 @@
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
 [ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
 [ext_resource type="AudioStream" uid="uid://bgbknghs7pbi5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="41_d5rxt"]
+[ext_resource type="Texture2D" uid="uid://f1jqd2epr6tl" path="res://Main/assets/Fine_box.webp" id="41_p3ukk"]
 [ext_resource type="AudioStream" uid="uid://bl6j6lx3l77q0" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="42_d5rxt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
@@ -384,16 +385,16 @@ script = ExtResource("36_dh0gb")
 body = NodePath("../../../Minivan")
 
 [node name="ScoreBox" type="Sprite2D" parent="CanvasLayer" unique_id=1790153027]
-position = Vector2(1071, 570)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("32_qs41t")
+position = Vector2(1063, 533)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("41_p3ukk")
 
 [node name="Label" type="Label" parent="CanvasLayer/ScoreBox" unique_id=1381292064 node_paths=PackedStringArray("minivan")]
-offset_left = -279.99997
-offset_top = -344.99997
-offset_right = 350.00003
-offset_bottom = 285.00003
-theme_override_font_sizes/font_size = 200
+offset_left = -219.99992
+offset_top = -260.0
+offset_right = 243.33333
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 150
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("37_dh0gb")

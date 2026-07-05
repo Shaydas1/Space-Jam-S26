@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://defpllmqcdnd6" path="res://Main/assets/Sounds/Car_loop_test.mp3" id="5_io3sn"]
 [ext_resource type="AudioStream" uid="uid://djreiujy0fnkr" path="res://Main/assets/Sounds/536769__egomassive__tire.ogg" id="6_d3it3"]
 [ext_resource type="AudioStream" uid="uid://4611iwauwgjq" path="res://Main/assets/Sounds/682083__henkonen__cat-yowl-distant.wav" id="7_1atqa"]
-[ext_resource type="AudioStream" uid="uid://dv2po3bud5vhi" path="res://Main/assets/Sounds/563356__nicholasdaryl__cartoonpunch.wav" id="7_hxam8"]
 [ext_resource type="Texture2D" uid="uid://by1o0pkgnma4d" path="res://Main/minivan/fire_1.png" id="8_hxam8"]
+[ext_resource type="AudioStream" uid="uid://7nf338gx80hr" path="res://Main/assets/Sounds/458572__facklere__bonk.wav" id="8_xuiwb"]
 [ext_resource type="Texture2D" uid="uid://b2yrm5rogai16" path="res://Main/minivan/fire_2.png" id="9_a6yu1"]
 [ext_resource type="Texture2D" uid="uid://c0fae3k4j5e45" path="res://Main/minivan/fire_3.png" id="10_ktrml"]
 [ext_resource type="Texture2D" uid="uid://ecthjoctymf3" path="res://Main/minivan/fire_4.png" id="11_wyhfv"]
@@ -81,7 +81,7 @@ stream = ExtResource("7_1atqa")
 volume_db = -15.0
 
 [node name="Bonk" type="AudioStreamPlayer" parent="." unique_id=135727985]
-stream = ExtResource("7_hxam8")
+stream = ExtResource("8_xuiwb")
 volume_db = -10.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1213375037]
