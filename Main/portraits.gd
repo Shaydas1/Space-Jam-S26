@@ -20,6 +20,16 @@ func _ready() -> void:
 		["DriverSpeedMax", "It's alright, I know a shortcut!"],
 		["Girl", "Officer, why are you texting and driving?"],
 		["DriverGrapple", "We'll get there when we get there!"],
+		["Girl", "Wheeeeee!"],
+		["DriverGrapple", "Watch this!"],
+		["Cop", "You're not getting away!"],
+		["Cop", "He can't keep getting away with this!"],
+		["Cat", "*Hairball*"],
+		["Cat", "*Snoring*"],
+		["Girl", "Can we stop for space burgers?"],
+		["DriverSpeedDrop", "Put your seatbelt back on!"],
+		["DriverSpeedLow", "Did I forget the passports?"],
+		["Girl", "Dad, what's that light on the dashboard?"],
 	]
 
 
