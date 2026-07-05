@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
 [ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
+[ext_resource type="Texture2D" uid="uid://bcw3x0l6ew7eu" path="res://Main/assets/Speedometer_box.webp" id="40_irwb1"]
 [ext_resource type="AudioStream" uid="uid://bgbknghs7pbi5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="41_d5rxt"]
 [ext_resource type="Texture2D" uid="uid://f1jqd2epr6tl" path="res://Main/assets/Fine_box.webp" id="41_p3ukk"]
 [ext_resource type="AudioStream" uid="uid://bl6j6lx3l77q0" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="42_d5rxt"]
@@ -371,13 +372,13 @@ texture = ExtResource("36_bjffo")
 [node name="SpeedometerBox" type="Sprite2D" parent="CanvasLayer" unique_id=1291387195]
 position = Vector2(116, 497)
 scale = Vector2(0.2, 0.214)
-texture = ExtResource("32_qs41t")
+texture = ExtResource("40_irwb1")
 
 [node name="TextSpeedometer" type="Label" parent="CanvasLayer/SpeedometerBox" unique_id=806235766 node_paths=PackedStringArray("body")]
-offset_left = -225.00002
-offset_top = -285.04672
-offset_right = 295.0
-offset_bottom = 233.64468
+offset_left = -255.0
+offset_top = -285.04675
+offset_right = 265.0
+offset_bottom = 233.64465
 theme_override_font_sizes/font_size = 200
 horizontal_alignment = 1
 vertical_alignment = 1
