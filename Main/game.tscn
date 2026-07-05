@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cwsud0r3qs4tu" path="res://Main/assets/portrait_holder/portrait_bg.webp" id="31_qs41t"]
 [ext_resource type="AudioStream" uid="uid://dmdnhb6t1jcro" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="32_hb0ms"]
 [ext_resource type="Texture2D" uid="uid://de8y0k675yoy7" path="res://Main/assets/portrait_holder/portrait_holder.webp" id="32_qs41t"]
+[ext_resource type="AudioStream" uid="uid://dkcg4re4c0000" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="33_hb0ms"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
 panorama = ExtResource("3_scbye")
@@ -276,4 +277,9 @@ sprite_frames = SubResource("SpriteFrames_2tkkp")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
 stream = ExtResource("32_hb0ms")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=810895329]
+stream = ExtResource("33_hb0ms")
+volume_db = 10.698
 autoplay = true
