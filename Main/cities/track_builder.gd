@@ -18,17 +18,19 @@ var player_track : int = -1
 
 signal player_entered_track(id : int)
 
+func reset():
+	all_highway_sections = []
+	available_highway_sections = []
+	active_track = []
+	min_track_id = 0
+	next_track_id = 0
+	player_track = -1
 
 func get_track(id):
 	return active_track.get(id - min_track_id)
 
 func build_initial_highway():
 	for i in range(1 + horizon_ahead + horizon_behind):
-		_append_component(_get_highway())
-	
-
-func build_debug():
-	for i in range(5):
 		_append_component(_get_highway())
 
 
