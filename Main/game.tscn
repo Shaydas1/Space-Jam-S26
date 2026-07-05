@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://bgbknghs7pbi5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="41_d5rxt"]
 [ext_resource type="Texture2D" uid="uid://f1jqd2epr6tl" path="res://Main/assets/Fine_box.webp" id="41_p3ukk"]
 [ext_resource type="AudioStream" uid="uid://bl6j6lx3l77q0" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="42_d5rxt"]
+[ext_resource type="Texture2D" uid="uid://bhowa1qik6k40" path="res://Main/assets/acceleration_bar/border.webp" id="44_1nmj5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
@@ -400,6 +401,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("37_dh0gb")
 minivan = NodePath("../../../Minivan")
+
+[node name="FancySpeedometerBorder" type="Sprite2D" parent="CanvasLayer" unique_id=124235644]
+position = Vector2(174, 622)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("44_1nmj5")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
 stream = ExtResource("41_d5rxt")
