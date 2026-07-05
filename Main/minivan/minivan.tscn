@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://qm13iv30yabc" path="res://Main/assets/center_player.png" id="2_jacwy"]
 [ext_resource type="Texture2D" uid="uid://c13pyvjxcrcox" path="res://Main/assets/left_player.png" id="3_utoyv"]
 [ext_resource type="Texture2D" uid="uid://daslx68h3w4j7" path="res://Main/assets/right_player.png" id="4_bexbh"]
+[ext_resource type="AudioStream" uid="uid://defpllmqcdnd6" path="res://Main/assets/Sounds/Car_loop_test.mp3" id="5_io3sn"]
+[ext_resource type="AudioStream" uid="uid://djreiujy0fnkr" path="res://Main/assets/Sounds/536769__egomassive__tire.ogg" id="6_d3it3"]
+[ext_resource type="AudioStream" uid="uid://4611iwauwgjq" path="res://Main/assets/Sounds/682083__henkonen__cat-yowl-distant.wav" id="7_1atqa"]
+[ext_resource type="AudioStream" uid="uid://7nf338gx80hr" path="res://Main/assets/Sounds/458572__facklere__bonk.wav" id="8_xuiwb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vqkdg"]
 radius = 1.8158417
@@ -28,3 +32,15 @@ texture = ExtResource("2_jacwy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1097857485]
 shape = SubResource("SphereShape3D_vqkdg")
+
+[node name="Engine" type="AudioStreamPlayer" parent="." unique_id=1863941636]
+stream = ExtResource("5_io3sn")
+
+[node name="Brake" type="AudioStreamPlayer" parent="." unique_id=295383884]
+stream = ExtResource("6_d3it3")
+
+[node name="Meow" type="AudioStreamPlayer" parent="." unique_id=788910669]
+stream = ExtResource("7_1atqa")
+
+[node name="Bonk" type="AudioStreamPlayer" parent="." unique_id=135727985]
+stream = ExtResource("8_xuiwb")
