@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="35_x6ew8"]
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
+[ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
 panorama = ExtResource("3_scbye")
@@ -300,12 +301,12 @@ position = Vector2(-864.99994, 124.99994)
 scale = Vector2(19.35, 4.5)
 texture = ExtResource("36_bjffo")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1291387195]
+[node name="SpeedometerBox" type="Sprite2D" parent="CanvasLayer" unique_id=1291387195]
 position = Vector2(116, 497)
 scale = Vector2(0.2, 0.214)
 texture = ExtResource("32_qs41t")
 
-[node name="TextSpeedometer" type="Label" parent="CanvasLayer/Sprite2D" unique_id=806235766 node_paths=PackedStringArray("body")]
+[node name="TextSpeedometer" type="Label" parent="CanvasLayer/SpeedometerBox" unique_id=806235766 node_paths=PackedStringArray("body")]
 offset_left = -225.00002
 offset_top = -285.04672
 offset_right = 295.0
@@ -315,6 +316,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("36_dh0gb")
 body = NodePath("../../../Minivan")
+
+[node name="ScoreBox" type="Sprite2D" parent="CanvasLayer" unique_id=1790153027]
+position = Vector2(1071, 570)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("32_qs41t")
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBox" unique_id=1381292064]
+offset_left = -279.99997
+offset_top = -344.99997
+offset_right = 350.00003
+offset_bottom = 285.00003
+theme_override_font_sizes/font_size = 150
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("37_dh0gb")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
 stream = ExtResource("32_hb0ms")
