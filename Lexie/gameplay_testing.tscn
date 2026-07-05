@@ -3,11 +3,7 @@
 [ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Main/game.gd" id="1_40hd6"]
 [ext_resource type="Texture2D" uid="uid://bpjx6um3j6ijd" path="res://Main/assets/space_pano.jpg" id="2_36pqe"]
 [ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="3_o63uj"]
-[ext_resource type="Script" uid="uid://bj668lm7d7qy" path="res://Lexie/cop.gd" id="4_57cd3"]
-[ext_resource type="Script" uid="uid://c1oexfd1b0xi4" path="res://Lexie/sprite_switcher.gd" id="4_eue23"]
-[ext_resource type="Texture2D" uid="uid://dv0be6ninjhr7" path="res://Lexie/copfront.png" id="4_stb5r"]
-[ext_resource type="Texture2D" uid="uid://bpf6w42sctnee" path="res://Lexie/copback.png" id="5_64jby"]
-[ext_resource type="Texture2D" uid="uid://dd7ixh60kbwj" path="res://Lexie/copside.png" id="5_eue23"]
+[ext_resource type="PackedScene" uid="uid://dp7idto3wdx8t" path="res://Lexie/obstacle_car.tscn" id="3_ojk2s"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="5_ojk2s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
@@ -20,9 +16,6 @@ sky_material = SubResource("PanoramaSkyMaterial_ijulh")
 background_mode = 2
 sky = SubResource("Sky_mahgt")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4wlpe"]
-size = Vector3(2.338028, 1.2451172, 2.4203186)
-
 [node name="game" type="Node3D" unique_id=607687153 node_paths=PackedStringArray("minivan")]
 script = ExtResource("1_40hd6")
 minivan = NodePath("Minivan")
@@ -30,44 +23,14 @@ minivan = NodePath("Minivan")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=562293947]
 environment = SubResource("Environment_vqkdg")
 
-[node name="cop" type="Node3D" parent="." unique_id=31089903]
-transform = Transform3D(0.03864996, 0, -0.99925286, 0, 1, 0, 0.99925286, 0, 0.03864996, 0, 2.3698626, 10.454923)
-script = ExtResource("4_57cd3")
-
-[node name="spin_select" type="Node3D" parent="cop" unique_id=2025091047 node_paths=PackedStringArray("left", "right", "front", "back")]
-transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
-script = ExtResource("4_eue23")
-left = NodePath("side_left")
-right = NodePath("side_right")
-front = NodePath("front")
-back = NodePath("back")
-
-[node name="back" type="Sprite3D" parent="cop/spin_select" unique_id=1833994083]
-modulate = Color(0, 0.58937395, 0.757786, 1)
-texture = ExtResource("5_64jby")
-
-[node name="side_right" type="Sprite3D" parent="cop/spin_select" unique_id=805162930]
-transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
-modulate = Color(0.79612327, 0.42255515, 1.92523e-07, 1)
-texture = ExtResource("5_eue23")
-
-[node name="side_left" type="Sprite3D" parent="cop/spin_select" unique_id=403979943]
-transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
-modulate = Color(0, 0.5689796, 0.84642637, 1)
-texture = ExtResource("5_eue23")
-
-[node name="front" type="Sprite3D" parent="cop/spin_select" unique_id=1448413914]
-modulate = Color(1, 0.53333336, 0, 1)
-texture = ExtResource("4_stb5r")
-
-[node name="Area3D" type="Area3D" parent="cop" unique_id=910644875]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cop/Area3D" unique_id=399711490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27072906, -0.122558594, -0.16722107)
-shape = SubResource("BoxShape3D_4wlpe")
+[node name="obstacle_car" parent="." unique_id=697564410 instance=ExtResource("3_ojk2s")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 2.3698626, -1098.3956)
+time_to_die = 1.0
+fling_speed = 500.0
 
 [node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("3_o63uj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.230979, 0)
+motion_mode = 1
 right_direction = Vector3(1, 0, 0)
 turn_rate = 90.0
 
@@ -81,5 +44,3 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("5_ojk2s")
 body = NodePath("../Minivan")
-
-[connection signal="body_entered" from="cop/Area3D" to="cop" method="_on_area_3d_body_entered"]

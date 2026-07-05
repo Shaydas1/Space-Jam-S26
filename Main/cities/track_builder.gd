@@ -14,7 +14,9 @@ var active_track : Array[TrackComponent] = []
 var min_track_id : int = 0 # smallest active index, if it == to the next, then nothing is loaded
 var next_track_id : int = 0 # one more than the largest
 
+var player_track : int = -1
 
+signal player_entered_track(id : int)
 
 func build_initial_highway():
 	for i in range(1 + horizon_ahead + horizon_behind):
@@ -59,8 +61,7 @@ func _append_component(section : TrackComponent):
 		get_tree().current_scene.add_child(section)
 		section.global_position = active_track.back().end() - section.start()
 		
-		print("placing connected")
-		print((active_track.back().end()))
+		#print((active_track.back().end()))
 		active_track.append(section)
 		
 
@@ -70,7 +71,7 @@ func _pop_component():
 		return
 		
 	var section = active_track.pop_front()
-	print("removing ", section.track_id)
+	#print("removing ", section.track_id)
 	
 	# increment to point at the next one
 	# will do the empty behavior correctly
@@ -104,14 +105,16 @@ func exited_section(id):
 
 func player_entered(id):
 	# when the player enters a section, 
+	player_track = max(id, player_track)
+	player_entered_track.emit(player_track)
 	
 	# add sections untill there are enough infront
-	while not (next_track_id > id + horizon_ahead):
+	while not (next_track_id > player_track + horizon_ahead):
 		# todo choose randomly
 		_append_component(_get_highway())
 		
 	# remove sections untill there aren't too many behind
-	while min_track_id < id - horizon_behind:
+	while min_track_id < player_track - horizon_behind:
 		_pop_component()
 
-	print("player in ", id, " active range (", min_track_id, ", ", next_track_id - 1, ")")
+	#print("player in ", player_track, " active range (", min_track_id, ", ", next_track_id - 1, ")")

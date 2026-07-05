@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dl5c57r75mm3v"]
 
-[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://Main/cities/track_component.gd" id="1_6pp0a"]
+[ext_resource type="Script" uid="uid://ccfr56cjlwahx" path="res://Main/cities/highway_track.gd" id="1_tnrri"]
 [ext_resource type="Material" uid="uid://baah7ln0a4xny" path="res://Lexie/city_tiles/materials/railing_csg_material.tres" id="2_tnrri"]
 [ext_resource type="Material" uid="uid://dqlb5ocaakxob" path="res://Lexie/city_tiles/materials/lane_csg_material.tres" id="3_1p2k8"]
 [ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://Lexie/city_tiles/materials/base_csg_material.tres" id="4_02gaq"]
@@ -42,11 +42,19 @@ size = Vector3(10, 10, 200)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1p2k8"]
 size = Vector3(40, 10, 200)
 
-[node name="Node3D" type="Node3D" unique_id=1819391397 node_paths=PackedStringArray("start_location", "end_location")]
-script = ExtResource("1_6pp0a")
+[sub_resource type="Curve3D" id="Curve3D_1p2k8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -200),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="6_lane_highway" type="Node3D" unique_id=353461215 node_paths=PackedStringArray("centerline", "start_location", "end_location")]
+script = ExtResource("1_tnrri")
+centerline = NodePath("Path3D")
 start_location = NodePath("start")
 end_location = NodePath("end")
-metadata/_custom_type_script = "uid://bfhtknecpm4dw"
+metadata/_custom_type_script = "uid://ccfr56cjlwahx"
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=193018929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.796, 0, 100)
@@ -68,11 +76,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
 [node name="end" type="Node3D" parent="." unique_id=333718169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
 
-[node name="load_trigger" type="Area3D" parent="." unique_id=1116440726]
+[node name="load_trigger" type="Area3D" parent="." unique_id=1116440726 node_paths=PackedStringArray("track") groups=["track_region"]]
 script = ExtResource("5_tnrri")
+track = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="load_trigger" unique_id=1611250876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.106, 0)
 shape = SubResource("BoxShape3D_1p2k8")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1215928423]
+curve = SubResource("Curve3D_1p2k8")
 
 [connection signal="body_entered" from="load_trigger" to="." method="_on_body_entered"]

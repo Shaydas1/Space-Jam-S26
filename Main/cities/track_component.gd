@@ -1,6 +1,13 @@
 class_name TrackComponent
 extends Node3D
 
+enum TrackType {
+	Highway,
+	City
+}
+
+var track_type : TrackType = TrackType.Highway
+
 @export var start_location : Node3D 
 @export var end_location : Node3D
 
@@ -33,6 +40,5 @@ func _on_body_entered(body):
 	if not is_active:
 		return
 		
-	print("entered load zone", body)
 	if body.is_in_group("Player"):
 		TrackBuilder.player_entered(track_id)
