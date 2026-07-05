@@ -32,16 +32,16 @@
 [ext_resource type="Texture2D" uid="uid://dxjqu2x2pgx1a" path="res://Main/assets/driver/speed_up/player_speed_up_3.webp" id="27_cs1fn"]
 [ext_resource type="Texture2D" uid="uid://cwsud0r3qs4tu" path="res://Main/assets/portrait_holder/portrait_bg.webp" id="31_qs41t"]
 [ext_resource type="Texture2D" uid="uid://ii1367e714vs" path="res://Main/assets/Dialogue_box/Background and shadow.webp" id="32_c4kj7"]
-[ext_resource type="AudioStream" uid="uid://dmdnhb6t1jcro" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="32_hb0ms"]
 [ext_resource type="Texture2D" uid="uid://de8y0k675yoy7" path="res://Main/assets/portrait_holder/portrait_holder.webp" id="32_qs41t"]
 [ext_resource type="Script" uid="uid://ddpju6kyv1wtu" path="res://Main/acceleromotor.gd" id="32_x6ew8"]
 [ext_resource type="Texture2D" uid="uid://b5k5o03s5mwjk" path="res://Main/assets/Dialogue_box/borders.png" id="33_d5rxt"]
-[ext_resource type="AudioStream" uid="uid://dkcg4re4c0000" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.wav" id="33_hb0ms"]
 [ext_resource type="Texture2D" uid="uid://bn6eedpdfgu5b" path="res://Main/assets/acceleration_bar/acceleration_empty.webp" id="34_i3kjt"]
 [ext_resource type="Texture2D" uid="uid://xl4xygypmfe7" path="res://Main/assets/acceleration_bar/accleration_full.webp" id="35_x6ew8"]
 [ext_resource type="Texture2D" uid="uid://dlg7xvq3diibt" path="res://Main/assets/acceleration_bar/White_rectangle.png" id="36_bjffo"]
 [ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="36_dh0gb"]
 [ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="37_dh0gb"]
+[ext_resource type="AudioStream" uid="uid://crpj5yecukjw5" path="res://Main/assets/Sounds/Juhani Junkala [Retro Game Music Pack] Level 3.ogg" id="41_d5rxt"]
+[ext_resource type="AudioStream" uid="uid://b26n3opmsgoll" path="res://Main/assets/Sounds/159752__conleec__misc_police_siren_int_onboard_002.ogg" id="42_d5rxt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
 size = Vector3(14.392181, 1, 1)
@@ -365,12 +365,12 @@ script = ExtResource("37_dh0gb")
 minivan = NodePath("../../../Minivan")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=950897084]
-stream = ExtResource("32_hb0ms")
+stream = ExtResource("41_d5rxt")
 volume_db = -15.0
 autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=810895329]
-stream = ExtResource("33_hb0ms")
+stream = ExtResource("42_d5rxt")
 volume_db = -5.0
 autoplay = true
 

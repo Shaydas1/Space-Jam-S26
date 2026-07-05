@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rpmhbbtt32f6"]
 
-[ext_resource type="Texture2D" uid="uid://cs4d6su6fwgu3" path="res://Lexie/Untitled_Artwork_130.png" id="1_sb5qo"]
-[ext_resource type="Texture2D" uid="uid://cpwpi1dmf4tmt" path="res://Lexie/Untitled_Artwork.png" id="2_b0gcq"]
+[ext_resource type="Texture2D" uid="uid://cs4d6su6fwgu3" path="res://Lexie/walls/Untitled_Artwork_130.png" id="1_sb5qo"]
+[ext_resource type="Texture2D" uid="uid://cpwpi1dmf4tmt" path="res://Lexie/walls/Untitled_Artwork.png" id="2_b0gcq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23be"]
 shading_mode = 0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsm857xw16j1d"]
 
-[ext_resource type="Texture2D" uid="uid://cs4d6su6fwgu3" path="res://Lexie/Untitled_Artwork_130.png" id="1_v23be"]
+[ext_resource type="Texture2D" uid="uid://cs4d6su6fwgu3" path="res://Lexie/walls/Untitled_Artwork_130.png" id="1_v23be"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23be"]
 shading_mode = 0
