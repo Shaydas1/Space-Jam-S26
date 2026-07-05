@@ -90,12 +90,19 @@ func spawn_at(pos :Vector3):
 	obs.spawn()
 
 func _make_new_obstacle():
-	var hw = obstacle_car_scene.instantiate()
+	var hw
+	if all_obstacles.size() < 1000:
+		hw = obstacle_car_scene.instantiate()
+	else:
+		hw = all_obstacles.pop_front()
+		available_obstacles.erase(hw)
+		
 	all_obstacles.append(hw)
 	available_obstacles.append(hw)
 
 
 func _get_obstacle():
+	
 	if available_obstacles.is_empty():
 		_make_new_obstacle()
 		

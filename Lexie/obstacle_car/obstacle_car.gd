@@ -59,15 +59,21 @@ func _physics_process(delta):
 
 
 func _on_area_entered(area):
+	if(not is_active or crashed): return
+	
 	var track_region = area as TrackRegion
 	if(track_region != null):
 		
 		Spawner.you_have_populated(track_region.track.track_id)
 		
+	var fleet = area as CopTriggerArea
+	if (fleet != null):
+		start_crashing(fleet.global_position - global_position)
+	
+		
 
 func _on_body_entered(body):
-	if not is_active:
-		return
+	if(not is_active or crashed): return
 		
 	if body.is_in_group("Player"):
 		var minivan = body as Minivan

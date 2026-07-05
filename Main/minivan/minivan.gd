@@ -37,14 +37,30 @@ signal slowing_down
 signal high_speed
 signal low_speed
 
+var is_dead = false
+
+@export var die_timer : Timer
+@export var explosion : AnimatedSprite3D
+
+func animation_finished():
+	explosion.visible = false
+
+func die_timer_timeout():
+	SceneManager.swap_screen(SceneManager.Screen.End)
 
 func hit_driver():
-	forward_speed = min(forward_speed * 0.6, base_speed)
+	forward_speed = min(forward_speed * 0.6, base_speed * 0.4)
 	if not get_node("Bonk").playing:
 			get_node("Bonk").play()
 
-func hit_cop_glance():
-	pass
+func hit_fleet():
+	is_dead = true
+	die_timer.start()
+	explosion.visible = true
+	sprite.visible = true
+	explosion.play()
+	get_node("Bonk").play()
+	sprite.rotate_z(deg_to_rad(180))
 
 func update_texture():
 	if abs(swerve_speed) < max_swerve_speed/2:
@@ -60,6 +76,9 @@ func update_texture():
 
 func _ready() -> void:
 	update_texture()
+	die_timer.timeout.connect(die_timer_timeout)
+	explosion.visible = false
+	explosion.animation_finished.connect(animation_finished)
 
 func decay_swerve_speed(_delta):
 	swerve_speed = lerp(swerve_speed, 0.0, swerve_decay)
@@ -78,6 +97,7 @@ func _update_angle(new_angle):
 
 
 func _physics_process(delta: float) -> void:
+	if(is_dead): return
 
 	var turn_input = Input.get_axis("turn_left", "turn_right")
 	
