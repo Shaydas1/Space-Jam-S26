@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dp5lwf5ykb7l4"]
+
+[ext_resource type="PackedScene" uid="uid://lonm6bp8yirw" path="res://Main/city_tiles/roads/junction_piece_cross_6_lane.tscn" id="2_x030t"]
+[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://Main/city_tiles/materials/base_csg_material.tres" id="3_uhswd"]
+
+[sub_resource type="Curve3D" id="Curve3D_a7er4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -35.593),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Path3D" type="Path3D" unique_id=163033979]
+curve = SubResource("Curve3D_a7er4")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=447334207]
+
+[node name="base" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=391751789]
+polygon = PackedVector2Array(0, -0.5, 35.593, -0.5, 35.593, -0.3, 0, -0.3)
+mode = 2
+path_node = NodePath("../..")
+path_interval_type = 0
+path_interval = 9.27
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = false
+path_u_distance = 10.0
+path_joined = false
+material = ExtResource("3_uhswd")
+
+[node name="CSGBakedMeshInstance3D" parent="." unique_id=1527658852 instance=ExtResource("2_x030t")]

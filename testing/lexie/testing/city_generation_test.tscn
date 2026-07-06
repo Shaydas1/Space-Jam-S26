@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cmdisket7bxe0"]
+
+[ext_resource type="Script" uid="uid://hlkygtv165sg" path="res://testing/lexie/testing/city_generation_test.gd" id="1_4yjee"]
+[ext_resource type="Resource" uid="uid://c7qwreegyskc6" path="res://Main/city_tiles/builders/6_lane_200m.tres" id="2_orf3c"]
+[ext_resource type="Resource" uid="uid://b15ppjtkgdjw5" path="res://Main/city_tiles/layouts/test_ciytL.tres" id="3_iwcqs"]
+[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="4_gsxv4"]
+[ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://Main/background/world_environment.tscn" id="4_x06uo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vqkdg"]
+size = Vector3(10, 10, 10)
+
+[node name="CityGenerationTest" type="Node3D" unique_id=563019748 node_paths=PackedStringArray("parent")]
+script = ExtResource("1_4yjee")
+city_builder = ExtResource("2_orf3c")
+layout = ExtResource("3_iwcqs")
+parent = NodePath("city_origin")
+
+[node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("4_x06uo")]
+
+[node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("4_gsxv4")]
+transform = Transform3D(0.61703587, 0, 0.78693503, 0, 1, 0, -0.78693503, 0, 0.61703587, 58.346134, 3.0000076, 56.31345)
+max_forward_speed = 100.0
+base_speed = 50.0
+min_forward_speed = 20.0
+turn_rate = 30.0
+
+[node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=1849207482]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9829355, 0.18395135, 0, -0.18395136, 0.98293537, 0, 6, 12)
+
+[node name="city_origin" type="Node3D" parent="." unique_id=1179230331]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=603027137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 137.6536, 0)
+mesh = SubResource("BoxMesh_vqkdg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1431240093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 137.654, 0)
+mesh = SubResource("BoxMesh_vqkdg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=249411686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 137.654, 200)
+mesh = SubResource("BoxMesh_vqkdg")

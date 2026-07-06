@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8eamwgily5at"]
 
-[ext_resource type="Texture2D" uid="uid://eg0kjk8qy1i4" path="res://Main/assets/guardrail_coponent.png" id="1_c1bda"]
-[ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://Main/assets/pool_component.png" id="2_jl208"]
+[ext_resource type="Texture2D" uid="uid://eg0kjk8qy1i4" path="res://assets/environment/guardrail_coponent.png" id="1_c1bda"]
+[ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://assets/environment/pool_component.png" id="2_jl208"]
 
 [sub_resource type="Curve3D" id="Curve3D_a7er4"]
 _data = {

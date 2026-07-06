@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dnx000f4kye4j"]
+
+[ext_resource type="Script" uid="uid://bj668lm7d7qy" path="res://Main/cop/cop.gd" id="1_8dfs1"]
+[ext_resource type="Script" uid="uid://c1oexfd1b0xi4" path="res://Main/sprite_switcher.gd" id="2_gti8y"]
+[ext_resource type="Texture2D" uid="uid://du6m8254hb72q" path="res://assets/sprites/vehicles/police_truck/cop_back.png" id="3_2lsrb"]
+[ext_resource type="Texture2D" uid="uid://bovyeyi3sjmsr" path="res://assets/sprites/vehicles/police_truck/cop_side.png" id="4_t7k5n"]
+[ext_resource type="Texture2D" uid="uid://jdknrgy0qt04" path="res://assets/sprites/vehicles/police_truck/cop_front.png" id="5_2lsrb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wlpe"]
+size = Vector3(2.338028, 1.2451172, 2.4203186)
+
+[node name="cop" type="Node3D" unique_id=455585769]
+transform = Transform3D(0.03864996, 0, -0.99925286, 0, 1, 0, 0.99925286, 0, 0.03864996, 0, 0, 0)
+script = ExtResource("1_8dfs1")
+
+[node name="spin_select" type="Node3D" parent="." unique_id=638789514 node_paths=PackedStringArray("left", "right", "front", "back")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_gti8y")
+left = NodePath("side_left")
+right = NodePath("side_right")
+front = NodePath("front")
+back = NodePath("back")
+back_cutoff_angle = 75.0
+
+[node name="back" type="Sprite3D" parent="spin_select" unique_id=1501227251]
+render_priority = 1
+texture = ExtResource("3_2lsrb")
+
+[node name="side_right" type="Sprite3D" parent="spin_select" unique_id=1936022842]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
+flip_h = true
+render_priority = 1
+texture = ExtResource("4_t7k5n")
+
+[node name="side_left" type="Sprite3D" parent="spin_select" unique_id=1834463259]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, 0)
+flip_h = true
+render_priority = 1
+texture = ExtResource("4_t7k5n")
+
+[node name="front" type="Sprite3D" parent="spin_select" unique_id=12727389]
+render_priority = 1
+texture = ExtResource("5_2lsrb")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1178069070]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1626952410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27072906, -0.122558594, -0.16722107)
+shape = SubResource("BoxShape3D_4wlpe")

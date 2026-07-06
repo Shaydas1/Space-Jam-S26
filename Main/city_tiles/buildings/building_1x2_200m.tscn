@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://86niyjt0ree4"]
+
+[ext_resource type="Texture2D" uid="uid://ce58dy62487ik" path="res://assets/environment/buildings/walls/Untitled_Artwork_130.png" id="1_28tl4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23be"]
+shading_mode = 0
+albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+albedo_texture = ExtResource("1_28tl4")
+uv1_scale = Vector3(6, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_avdos"]
+material = SubResource("StandardMaterial3D_v23be")
+size = Vector3(200, 90, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqeqa"]
+shading_mode = 0
+uv1_scale = Vector3(6, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qjsqp"]
+material = SubResource("StandardMaterial3D_iqeqa")
+size = Vector3(35.593, 80, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
+size = Vector3(435.593, 90, 200)
+
+[node name="Building1x2_200m" type="StaticBody3D" unique_id=1215072351]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2131850801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.796, 0, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=407925207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+mesh = SubResource("BoxMesh_avdos")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D" unique_id=426302389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.593, 45, 0)
+mesh = SubResource("BoxMesh_avdos")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D" unique_id=1650974720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.797, 40, 0)
+mesh = SubResource("BoxMesh_qjsqp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=439411924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 0)
+shape = SubResource("BoxShape3D_vqkdg")

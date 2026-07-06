@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dmplxfsd055g5"]
+
+[ext_resource type="Script" uid="uid://c30qca2x2qxh7" path="res://Main/cop/fleet.gd" id="1_apnrx"]
+[ext_resource type="PackedScene" uid="uid://dnx000f4kye4j" path="res://Main/cop/cop.tscn" id="1_v82mx"]
+[ext_resource type="Script" uid="uid://cm4nsktsa8cxh" path="res://Main/obstacle_car/cop_trigger_area.gd" id="2_6s8cw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqkdg"]
+size = Vector3(17.240234, 9.483337, 123.59186)
+
+[node name="fleet" type="CharacterBody3D" unique_id=783640922]
+script = ExtResource("1_apnrx")
+forward_speed = null
+max_dist_away = null
+vol_max = null
+vol_min = null
+
+[node name="trigger" type="Area3D" parent="." unique_id=683029508 node_paths=PackedStringArray("fleet")]
+script = ExtResource("2_6s8cw")
+fleet = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trigger" unique_id=11326419]
+transform = Transform3D(-0.017812131, 0, -0.99984133, 0, 1, 0, 0.99984133, 0, -0.017812131, -4.4609337, 1.5023499, 10.030305)
+shape = SubResource("BoxShape3D_vqkdg")
+
+[node name="cop" parent="." unique_id=455585769 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 4.027918, 0, 5.8776913)
+
+[node name="cop2" parent="." unique_id=733655839 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -1.1182175, 0, 3.812315)
+
+[node name="cop3" parent="." unique_id=814402650 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -6.3570495, 0, 5.692684)
+
+[node name="cop4" parent="." unique_id=1097779105 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -11.856205, 0, 5.594716)
+
+[node name="cop5" parent="." unique_id=804834938 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 9.166997, 0, 4.783887)
+
+[node name="cop6" parent="." unique_id=513406361 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 14.196571, 0, 6.0588455)
+
+[node name="cop7" parent="." unique_id=528372397 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 19.553995, 0, 6.154288)
+
+[node name="cop8" parent="." unique_id=1308125241 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 18.35543, 0, 10.708131)
+
+[node name="cop9" parent="." unique_id=551129227 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 11.609369, 0, 11.64141)
+
+[node name="cop10" parent="." unique_id=14903206 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 6.223634, 0, 14.737064)
+
+[node name="cop11" parent="." unique_id=1466306905 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, 2.3334217, 0, 10.422699)
+
+[node name="cop12" parent="." unique_id=87448918 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -2.9144168, 0, 10.329209)
+
+[node name="cop13" parent="." unique_id=717472979 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -2.9144168, 0, 10.329209)
+
+[node name="cop14" parent="." unique_id=823123943 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -9.122217, 0, 10.218618)
+
+[node name="cop15" parent="." unique_id=1018587522 instance=ExtResource("1_v82mx")]
+transform = Transform3D(-0.99978274, 0, -0.020845067, 0, 1, 0, 0.020845067, 0, -0.99978274, -6.525203, 0, 15.525989)
+
+[connection signal="body_entered" from="trigger" to="." method="_on_area_3d_body_entered"]

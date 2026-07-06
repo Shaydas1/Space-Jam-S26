@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://e66xqa5kf1hk"]
+
+[ext_resource type="Script" uid="uid://br4pqtr2d4gw5" path="res://testing/james/city_test/city_generation_test.gd" id="1_qxned"]
+[ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://Main/background/world_environment.tscn" id="4_vixgo"]
+[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="5_xth38"]
+
+[node name="CityGenerationTest" type="Node3D" unique_id=563019748]
+script = ExtResource("1_qxned")
+
+[node name="WorldEnvironment" parent="." unique_id=207926968 instance=ExtResource("4_vixgo")]
+
+[node name="Minivan" parent="." unique_id=1745930246 instance=ExtResource("5_xth38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460, 0, 0)
+max_forward_speed = 0.0
+base_speed = 0.0
+min_forward_speed = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="Minivan" unique_id=1849207482]
+transform = Transform3D(-0.99746567, -0.0071192686, 0.07079251, 0.0060952823, 0.9827732, 0.18471532, -0.07088802, 0.18467867, -0.9802391, 0.5331474, 8.519126, -11.616753)
