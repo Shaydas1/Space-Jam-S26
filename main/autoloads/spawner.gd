@@ -1,7 +1,7 @@
 class_name Spawner_Impl
 extends Node
 
-var obstacle_car_scene : PackedScene = preload("res://Main/obstacle_car/obstacle_car.tscn")
+var obstacle_car_scene : PackedScene = preload("res://main/obstacle_car/obstacle_car.tscn")
 
 var all_obstacles : Array[ObstacleCar] = []
 var available_obstacles : Array[ObstacleCar] = []

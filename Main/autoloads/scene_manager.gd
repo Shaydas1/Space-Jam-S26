@@ -7,9 +7,9 @@ enum Screen {
 var current_screen : Screen = Screen.Start
 
 var screen_map : Dictionary[Screen, PackedScene] = {
-	Screen.Start : load("res://James/screens/start.tscn"),
-	Screen.Game : load("res://Main/game.tscn"),
-	Screen.End : load("res://James/screens/end.tscn"),
+	Screen.Start : load("res://main/screens/start.tscn"),
+	Screen.Game : load("res://main/screens/game.tscn"),
+	Screen.End : load("res://main/screens/end.tscn"),
 }
 
 func _swap_screen(screen : Screen):

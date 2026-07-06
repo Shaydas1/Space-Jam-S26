@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://e66xqa5kf1hk"]
 
 [ext_resource type="Script" uid="uid://br4pqtr2d4gw5" path="res://testing/james/city_test/city_generation_test.gd" id="1_qxned"]
-[ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://Main/background/world_environment.tscn" id="4_vixgo"]
-[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="5_xth38"]
+[ext_resource type="PackedScene" uid="uid://ctao8qsbnw45j" path="res://main/background/world_environment.tscn" id="4_vixgo"]
+[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://main/minivan/minivan.tscn" id="5_xth38"]
 
 [node name="CityGenerationTest" type="Node3D" unique_id=563019748]
 script = ExtResource("1_qxned")

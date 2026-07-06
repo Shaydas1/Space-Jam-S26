@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cq3fsnfpcm10b"]
 
-[ext_resource type="Script" uid="uid://dwu70323embja" path="res://Main/screens/end.gd" id="1_2gtpu"]
+[ext_resource type="Script" uid="uid://dwu70323embja" path="res://main/screens/end.gd" id="1_2gtpu"]
 [ext_resource type="Texture2D" uid="uid://dl1me05ocei6a" path="res://assets/ui/end_screen/end_screen_background.png" id="2_8egqf"]
 [ext_resource type="Texture2D" uid="uid://c5ngur5ccocim" path="res://assets/ui/end_screen/restart.png" id="3_mgols"]
 [ext_resource type="Texture2D" uid="uid://bycyjw6txdepc" path="res://assets/ui/end_screen/menu.png" id="4_3rdk6"]
 [ext_resource type="Texture2D" uid="uid://f1jqd2epr6tl" path="res://assets/ui/game_screen/Fine_box.webp" id="5_3rdk6"]
 [ext_resource type="FontFile" uid="uid://bubf3l8k6p87v" path="res://assets/fonts/ABCMaxiSharpMonoTrial-Regular.otf" id="6_p80uq"]
-[ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://Main/score.gd" id="6_s0tsg"]
+[ext_resource type="Script" uid="uid://bbbudxk1a42tg" path="res://main/ui/score.gd" id="6_s0tsg"]
 
 [node name="End" type="Node2D" unique_id=1971923482]
 script = ExtResource("1_2gtpu")

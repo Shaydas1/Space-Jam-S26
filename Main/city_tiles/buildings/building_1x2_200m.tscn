@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://86niyjt0ree4"]
 
-[ext_resource type="Texture2D" uid="uid://ce58dy62487ik" path="res://assets/environment/buildings/walls/Untitled_Artwork_130.png" id="1_28tl4"]
+[ext_resource type="Texture2D" uid="uid://ce58dy62487ik" path="res://assets/environment/buildings/walls/Untitled_Artwork_130.png" id="1_1cpjf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v23be"]
 shading_mode = 0
 albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
-albedo_texture = ExtResource("1_28tl4")
+albedo_texture = ExtResource("1_1cpjf")
 uv1_scale = Vector3(6, 2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_avdos"]

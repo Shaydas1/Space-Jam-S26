@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://cf3uj0afqt767"]
 
-[ext_resource type="Script" uid="uid://dsk5pdqpkya45" path="res://Main/screens/start.gd" id="1_bitbn"]
-[ext_resource type="Texture2D" uid="uid://dpxtjv4sm3xkb" path="res://assets/ui/start_screen/New start background.png" id="2_1sono"]
-[ext_resource type="Texture2D" uid="uid://k3wqrpqpuanf" path="res://assets/ui/start_screen/New start button.png" id="4_1sono"]
-[ext_resource type="Texture2D" uid="uid://bxe7eus6oesi8" path="res://assets/ui/start_screen/options.webp" id="6_5a71q"]
+[ext_resource type="Script" uid="uid://dsk5pdqpkya45" path="res://main/screens/start.gd" id="1_54xwx"]
+[ext_resource type="Texture2D" uid="uid://dpxtjv4sm3xkb" path="res://assets/ui/start_screen/New start background.png" id="2_24wx3"]
+[ext_resource type="Texture2D" uid="uid://bxe7eus6oesi8" path="res://assets/ui/start_screen/options.webp" id="3_56mse"]
+[ext_resource type="Texture2D" uid="uid://k3wqrpqpuanf" path="res://assets/ui/start_screen/New start button.png" id="4_cjrxi"]
 
 [node name="Start" type="Node2D" unique_id=571347030]
-script = ExtResource("1_bitbn")
+script = ExtResource("1_54xwx")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1790716810]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_1sono")
+texture = ExtResource("2_24wx3")
 
 [node name="options" type="Sprite2D" parent="." unique_id=784910794]
 visible = false
 position = Vector2(177, 184)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_5a71q")
+texture = ExtResource("3_56mse")
 
 [node name="start" type="Sprite2D" parent="." unique_id=1030461469]
 position = Vector2(141, 182)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_1sono")
+texture = ExtResource("4_cjrxi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1140585633]
 

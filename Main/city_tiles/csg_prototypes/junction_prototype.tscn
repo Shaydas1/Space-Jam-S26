@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp5lwf5ykb7l4"]
 
-[ext_resource type="PackedScene" uid="uid://lonm6bp8yirw" path="res://Main/city_tiles/roads/junction_piece_cross_6_lane.tscn" id="2_x030t"]
-[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://Main/city_tiles/materials/base_csg_material.tres" id="3_uhswd"]
+[ext_resource type="PackedScene" uid="uid://lonm6bp8yirw" path="res://main/city_tiles/roads/junction_piece_cross_6_lane.tscn" id="2_x030t"]
+[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://main/city_tiles/materials/base_csg_material.tres" id="3_uhswd"]
 
 [sub_resource type="Curve3D" id="Curve3D_a7er4"]
 _data = {

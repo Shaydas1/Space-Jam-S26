@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://2kinfpjdwcme"]
 
-[ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://Main/game.gd" id="1_40hd6"]
+[ext_resource type="Script" uid="uid://bvrlag0uo04k2" path="res://main/screens/game.gd" id="1_40hd6"]
 [ext_resource type="Texture2D" path="res://Main/assets/space_pano.jpg" id="2_36pqe"]
-[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://Main/minivan/minivan.tscn" id="3_o63uj"]
-[ext_resource type="PackedScene" uid="uid://dp7idto3wdx8t" path="res://Main/obstacle_car/obstacle_car.tscn" id="3_ojk2s"]
-[ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://Main/ui/speedometer.gd" id="5_ojk2s"]
+[ext_resource type="PackedScene" uid="uid://dlcqoxlopidnx" path="res://main/minivan/minivan.tscn" id="3_o63uj"]
+[ext_resource type="PackedScene" uid="uid://dp7idto3wdx8t" path="res://main/obstacle_car/obstacle_car.tscn" id="3_ojk2s"]
+[ext_resource type="Script" uid="uid://ssav2wa85hrd" path="res://main/ui/speedometer.gd" id="5_ojk2s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ijulh"]
 panorama = ExtResource("2_36pqe")

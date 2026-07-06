@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://dl5c57r75mm3v"]
 
-[ext_resource type="Script" uid="uid://ccfr56cjlwahx" path="res://Main/cities/highway_track.gd" id="1_tnrri"]
-[ext_resource type="Material" uid="uid://baah7ln0a4xny" path="res://Main/city_tiles/materials/railing_csg_material.tres" id="2_tnrri"]
-[ext_resource type="Material" uid="uid://dqlb5ocaakxob" path="res://Main/city_tiles/materials/lane_csg_material.tres" id="3_1p2k8"]
-[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://Main/city_tiles/materials/base_csg_material.tres" id="4_02gaq"]
-[ext_resource type="Script" uid="uid://835vplagt2jl" path="res://Main/highway/load_trigger.gd" id="5_tnrri"]
+[ext_resource type="Script" uid="uid://ccfr56cjlwahx" path="res://main/cities/highway_track.gd" id="1_tnrri"]
+[ext_resource type="Material" uid="uid://baah7ln0a4xny" path="res://main/city_tiles/materials/railing_csg_material.tres" id="2_tnrri"]
+[ext_resource type="Material" uid="uid://dqlb5ocaakxob" path="res://main/city_tiles/materials/lane_csg_material.tres" id="3_1p2k8"]
+[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://main/city_tiles/materials/base_csg_material.tres" id="4_02gaq"]
+[ext_resource type="Script" uid="uid://835vplagt2jl" path="res://main/highway/load_trigger.gd" id="5_tnrri"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n4cmj"]
 _surfaces = [{

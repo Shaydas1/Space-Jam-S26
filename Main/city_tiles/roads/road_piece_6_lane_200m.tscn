@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://cm275jkodd8wn"]
 
-[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://Main/cities/track_component.gd" id="1_fl44k"]
-[ext_resource type="Material" uid="uid://baah7ln0a4xny" path="res://Main/city_tiles/materials/railing_csg_material.tres" id="1_xschg"]
-[ext_resource type="Material" uid="uid://dqlb5ocaakxob" path="res://Main/city_tiles/materials/lane_csg_material.tres" id="2_fl44k"]
-[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://Main/city_tiles/materials/base_csg_material.tres" id="3_ncnt1"]
+[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://main/cities/track_component.gd" id="1_fl44k"]
+[ext_resource type="Material" uid="uid://baah7ln0a4xny" path="res://main/city_tiles/materials/railing_csg_material.tres" id="1_xschg"]
+[ext_resource type="Material" uid="uid://dqlb5ocaakxob" path="res://main/city_tiles/materials/lane_csg_material.tres" id="2_fl44k"]
+[ext_resource type="Material" uid="uid://dg1jf45i5cla8" path="res://main/city_tiles/materials/base_csg_material.tres" id="3_ncnt1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n4cmj"]
 _surfaces = [{

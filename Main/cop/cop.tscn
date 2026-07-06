@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnx000f4kye4j"]
 
-[ext_resource type="Script" uid="uid://bj668lm7d7qy" path="res://Main/cop/cop.gd" id="1_8dfs1"]
-[ext_resource type="Script" uid="uid://c1oexfd1b0xi4" path="res://Main/sprite_switcher.gd" id="2_gti8y"]
+[ext_resource type="Script" uid="uid://bj668lm7d7qy" path="res://main/cop/cop.gd" id="1_8dfs1"]
+[ext_resource type="Script" uid="uid://c1oexfd1b0xi4" path="res://main/sprite_switcher.gd" id="2_gti8y"]
 [ext_resource type="Texture2D" uid="uid://du6m8254hb72q" path="res://assets/sprites/vehicles/police_truck/cop_back.png" id="3_2lsrb"]
 [ext_resource type="Texture2D" uid="uid://bovyeyi3sjmsr" path="res://assets/sprites/vehicles/police_truck/cop_side.png" id="4_t7k5n"]
 [ext_resource type="Texture2D" uid="uid://jdknrgy0qt04" path="res://assets/sprites/vehicles/police_truck/cop_front.png" id="5_2lsrb"]

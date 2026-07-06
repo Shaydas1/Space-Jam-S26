@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Building" format=3 uid="uid://c2t52lr8ldm1n"]
 
-[ext_resource type="PackedScene" uid="uid://c6f7xf2ji8f1u" path="res://Main/city_tiles/buildings/building_L_200m.tscn" id="1_mdk6p"]
-[ext_resource type="Script" uid="uid://bptop1rj6pa6j" path="res://Main/cities/building.gd" id="2_tpctk"]
+[ext_resource type="PackedScene" uid="uid://c6f7xf2ji8f1u" path="res://main/city_tiles/buildings/building_L_200m.tscn" id="1_mdk6p"]
+[ext_resource type="Script" uid="uid://bptop1rj6pa6j" path="res://main/cities/building.gd" id="2_tpctk"]
 
 [resource]
 script = ExtResource("2_tpctk")

@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://cjo306ejux152"]
 
-[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://Main/cities/track_component.gd" id="1_jtbxh"]
+[ext_resource type="Script" uid="uid://bfhtknecpm4dw" path="res://main/cities/track_component.gd" id="1_jtbxh"]
 [ext_resource type="Texture2D" uid="uid://eg0kjk8qy1i4" path="res://assets/environment/guardrail_coponent.png" id="2_sppyo"]
 [ext_resource type="Texture2D" uid="uid://d3qpwbr0s46ly" path="res://assets/environment/pool_component.png" id="3_cqi8k"]
-[ext_resource type="Script" uid="uid://835vplagt2jl" path="res://Main/highway/load_trigger.gd" id="4_iyu8d"]
+[ext_resource type="Script" uid="uid://835vplagt2jl" path="res://main/highway/load_trigger.gd" id="4_iyu8d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqkdg"]
 transparency = 1
